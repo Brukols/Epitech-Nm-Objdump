@@ -23,4 +23,11 @@ int objdump(int, char **);
 int display_information(char *);
 int display_overall_header(objdump_t *obj);
 
+/* FILE */
+int close_file(int);
+int open_file(char *);
+
+/* OBJDUMP STRUCT */
+objdump_t init_objdump_struct(char *);
+
 #endif /* !OBJDUMP_H */

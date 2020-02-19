@@ -9,6 +9,8 @@
 #define OBJDUMP_H
 
 #include <elf.h>
+#include "macros.h"
+#include <stdbool.h>
 
 typedef struct objdump_s
 {
@@ -29,5 +31,9 @@ int open_file(char *);
 
 /* OBJDUMP STRUCT */
 objdump_t init_objdump_struct(char *);
+
+/* OVERALL HEADER */
+int file_format(objdump_t *obj);
+bool is_elf(objdump_t *obj);
 
 #endif /* !OBJDUMP_H */

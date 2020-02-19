@@ -5,13 +5,16 @@
 ** display_information
 */
 
-#include "../include/objdump.h"
+#include "../../include/objdump.h"
 #include <stdio.h>
 #include <elf.h>
 
 int display_overall_header(objdump_t *obj)
 {
     obj->ehdr = obj->buf;
+
+    if (file_format(obj) == FAILURE)
+        return (FAILURE);
     printf("%s\n", obj->ehdr->e_ident);
     printf("%d\n", obj->ehdr->e_machine);
     printf("%d\n", obj->ehdr->e_version);

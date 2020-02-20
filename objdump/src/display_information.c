@@ -15,8 +15,7 @@ int display_information(char *path)
         return (-1);
     if (obj.buf == (void *)-1)
         return (close_file(obj.fd));
-    init_elf_struct(&obj);
-    if (file_has_error(&obj)) {
+    if (init_elf_struct(&obj) == FAILURE) {
         destroy_objdump_struct(obj);
         return (FAILURE);
     }

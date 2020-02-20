@@ -13,7 +13,7 @@
 int objdump(int, char **);
 int display_information(char *);
 int display_overall_header(objdump_t *obj);
-void init_elf_struct(objdump_t *obj);
+int init_elf_struct(objdump_t *obj);
 
 /* ERROR */
 bool file_has_error(objdump_t *obj);
@@ -30,6 +30,7 @@ int open_file(char *);
 objdump_t init_objdump_struct(char *);
 void destroy_objdump_struct(objdump_t obj);
 void init_flags(objdump_t *obj);
+void init_phdr_struct(objdump_t *obj);
 
 /* FLAGS */
 int flag_has_reloc(objdump_t *obj);

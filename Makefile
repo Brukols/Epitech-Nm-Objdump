@@ -25,6 +25,7 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/objdump_struct/init_objdump_struct.c	\
 					objdump/src/objdump_struct/destroy_objdump_struct.c	\
 					objdump/src/objdump_struct/init_elf_struct.c	\
+					objdump/src/objdump_struct/init_phdr_struct.c	\
 					objdump/src/objdump_struct/init_flags.c	\
 					objdump/src/objdump_struct/flags/flag_d_paged.c	\
 					objdump/src/objdump_struct/flags/flag_dynamic.c	\
@@ -43,6 +44,16 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/objdump_struct/phdr/get_p_paddr.c	\
 					objdump/src/objdump_struct/phdr/get_p_type.c	\
 					objdump/src/objdump_struct/phdr/get_p_vaddr.c	\
+					objdump/src/objdump_struct/shdr/get_sh_addr.c	\
+					objdump/src/objdump_struct/shdr/get_sh_addralign.c	\
+					objdump/src/objdump_struct/shdr/get_sh_entsize.c	\
+					objdump/src/objdump_struct/shdr/get_sh_flags.c	\
+					objdump/src/objdump_struct/shdr/get_sh_info.c	\
+					objdump/src/objdump_struct/shdr/get_sh_link.c	\
+					objdump/src/objdump_struct/shdr/get_sh_name.c	\
+					objdump/src/objdump_struct/shdr/get_sh_offset.c	\
+					objdump/src/objdump_struct/shdr/get_sh_size.c	\
+					objdump/src/objdump_struct/shdr/get_sh_type.c	\
 					objdump/src/error/file_has_error.c	\
 					objdump/src/error/good_ident.c	\
 					objdump/src/error/good_machine.c	\

@@ -7,7 +7,12 @@
 
 #include "../../include/objdump.h"
 
-void init_elf_struct(objdump_t *obj)
+int init_elf_struct(objdump_t *obj)
 {
     obj->ehdr = obj->buf;
+    if (file_has_error(obj)) {
+        return (FAILURE);
+    }
+    init_phdr_struct(obj);
+    return (SUCCESS);
 }

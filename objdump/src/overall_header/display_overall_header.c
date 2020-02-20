@@ -11,8 +11,8 @@
 
 int display_overall_header(objdump_t *obj)
 {
-    // display_file_format(obj);
-    // display_architecture(obj);
+    display_file_format(obj);
+    display_architecture(obj);
     // display_flags(obj);
     // display_start_adress(obj);
     // printf("%s\n", obj->ehdr->e_ident);

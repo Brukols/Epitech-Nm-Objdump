@@ -16,13 +16,20 @@ bool wrong_file_format(objdump_t *obj)
 
 bool good_ident(objdump_t *obj)
 {
-    if (obj->ehdr->e_ident[0] != ELFMAG0)
+    const int bytes[] = {
+        0, 1, 2, 3, 6
+    };
+    const char defines[] = {
+        ELFMAG0, ELFMAG1, ELFMAG2, ELFMAG3, EV_CURRENT
+    };
+
+    for (size_t i = 0; i < 5; i++) {
+        if (obj->ehdr->e_ident[bytes[i]] != defines[i])
+            return (wrong_file_format(obj));
+    }
+    if (obj->ehdr->e_ident[4] == ELFCLASSNONE)
         return (wrong_file_format(obj));
-    if (obj->ehdr->e_ident[1] != ELFMAG1)
-        return (wrong_file_format(obj));
-    if (obj->ehdr->e_ident[2] != ELFMAG2)
-        return (wrong_file_format(obj));
-    if (obj->ehdr->e_ident[3] != ELFMAG3)
+    if (obj->ehdr->e_ident[5] == ELFDATANONE)
         return (wrong_file_format(obj));
     return (true);
 }

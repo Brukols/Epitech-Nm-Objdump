@@ -42,8 +42,7 @@ objdump_t init_objdump_struct(char *);
 void destroy_objdump_struct(objdump_t obj);
 
 /* OVERALL HEADER */
-int file_format(objdump_t *obj);
-bool is_elf(objdump_t *obj);
-int architecture(objdump_t *obj);
+void display_file_format(objdump_t *obj);
+void display_architecture(objdump_t *obj);
 
 #endif /* !OBJDUMP_H */

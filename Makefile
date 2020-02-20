@@ -17,8 +17,8 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/objdump.c	\
 					objdump/src/display_information.c	\
 					objdump/src/overall_header/display_overall_header.c	\
-					objdump/src/overall_header/file_format.c	\
-					objdump/src/overall_header/architecture.c	\
+					objdump/src/overall_header/display_file_format.c	\
+					objdump/src/overall_header/display_architecture.c	\
 					objdump/src/file/close_file.c	\
 					objdump/src/file/open_file.c	\
 					objdump/src/objdump_struct/init_objdump_struct.c	\

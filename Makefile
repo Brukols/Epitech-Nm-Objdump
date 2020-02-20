@@ -35,6 +35,14 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/objdump_struct/flags/flag_has_reloc.c	\
 					objdump/src/objdump_struct/flags/flag_has_syms.c	\
 					objdump/src/objdump_struct/flags/flag_wp_text.c	\
+					objdump/src/objdump_struct/phdr/get_p_align.c	\
+					objdump/src/objdump_struct/phdr/get_p_filesz.c	\
+					objdump/src/objdump_struct/phdr/get_p_flags.c	\
+					objdump/src/objdump_struct/phdr/get_p_memsz.c	\
+					objdump/src/objdump_struct/phdr/get_p_offset.c	\
+					objdump/src/objdump_struct/phdr/get_p_paddr.c	\
+					objdump/src/objdump_struct/phdr/get_p_type.c	\
+					objdump/src/objdump_struct/phdr/get_p_vaddr.c	\
 					objdump/src/error/file_has_error.c	\
 					objdump/src/error/good_ident.c	\
 					objdump/src/error/good_machine.c	\

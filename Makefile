@@ -19,11 +19,22 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/overall_header/display_overall_header.c	\
 					objdump/src/overall_header/display_file_format.c	\
 					objdump/src/overall_header/display_architecture.c	\
+					objdump/src/overall_header/display_flags.c	\
 					objdump/src/file/close_file.c	\
 					objdump/src/file/open_file.c	\
 					objdump/src/objdump_struct/init_objdump_struct.c	\
 					objdump/src/objdump_struct/destroy_objdump_struct.c	\
 					objdump/src/objdump_struct/init_elf_struct.c	\
+					objdump/src/objdump_struct/init_flags.c	\
+					objdump/src/objdump_struct/flags/flag_d_paged.c	\
+					objdump/src/objdump_struct/flags/flag_dynamic.c	\
+					objdump/src/objdump_struct/flags/flag_exec_p.c	\
+					objdump/src/objdump_struct/flags/flag_has_debug.c	\
+					objdump/src/objdump_struct/flags/flag_has_lineno.c	\
+					objdump/src/objdump_struct/flags/flag_has_locals.c	\
+					objdump/src/objdump_struct/flags/flag_has_reloc.c	\
+					objdump/src/objdump_struct/flags/flag_has_syms.c	\
+					objdump/src/objdump_struct/flags/flag_wp_text.c	\
 					objdump/src/error/file_has_error.c	\
 					objdump/src/error/good_ident.c	\
 					objdump/src/error/good_machine.c	\
@@ -62,8 +73,14 @@ clean:
 	$(RM) $(OBJS_NM)
 	$(RM) $(OBJS_OBJDUMP)
 
+clean_objdump:
+	$(RM) $(OBJS_OBJDUMP)
+
 fclean: clean
 	$(RM) $(NAME_NM)
+	$(RM) $(NAME_OBJDUMP)
+
+fclean_objdump: clean_objdump
 	$(RM) $(NAME_OBJDUMP)
 
 re: fclean all
@@ -80,4 +97,7 @@ tests_run: fclean $(OBJS_TESTS)
 debug: CFLAGS += -g
 debug: re
 
-.PHONY: all nm objdump clean fclean re debug tests_run re_nm re_objdump
+debug_objdump: CFLAGS += -g
+debug_objdump: re_objdump
+
+.PHONY: all nm objdump clean fclean re debug tests_run re_nm re_objdump clean_objdump fclean_objdump debug_objdump

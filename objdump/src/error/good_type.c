@@ -8,7 +8,7 @@
 #include "../../include/objdump.h"
 #include <stdio.h>
 
-bool wrong_type(objdump_t *obj)
+static bool wrong_type(objdump_t *obj)
 {
     if (obj->ehdr->e_type == ET_NONE) {
         fprintf(stderr, "objdump: %s: unknown type\n", obj->path);

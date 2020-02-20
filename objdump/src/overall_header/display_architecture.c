@@ -17,7 +17,7 @@ const char defines[] = {
 const char *architectures[] = {
     "m32", "sparc", "386", "68k", "88k", "860", "mips", "parisc", \
     "sparc32plus", "ppc", "ppc64", "s390", "arm", "sh", "sparcv9", \
-    "ia_64", "x86_64", "vax", NULL
+    "ia_64", "x86-64", "vax", NULL
 };
 
 void display_architecture(objdump_t *obj)

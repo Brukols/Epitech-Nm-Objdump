@@ -8,7 +8,7 @@
 #include "../../include/objdump.h"
 #include <stdio.h>
 
-bool wrong_file_format(objdump_t *obj)
+static bool wrong_file_format(objdump_t *obj)
 {
     fprintf(stderr, "objdump: %s: file format not recognized\n", obj->path);
     return (false);

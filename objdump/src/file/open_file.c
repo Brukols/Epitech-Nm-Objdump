@@ -15,7 +15,7 @@ int open_file(char *path)
     int fd = open(path, O_RDONLY);
 
     if (fd == -1) {
-        fprintf(stderr, "Objdump : can't open file\n");
+        fprintf(stderr, "objdump '%s': No such file\n", path);
     }
     return (fd);
 }

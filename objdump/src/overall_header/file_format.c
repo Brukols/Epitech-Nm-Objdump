@@ -6,11 +6,10 @@
 */
 
 #include "../../include/objdump.h"
+#include <stdio.h>
 
 int file_format(objdump_t *obj)
 {
-    if (!is_elf(obj)) {
-        return (FAILURE);
-    }
+    printf("\n%s:\tfile format elf64-x86-64\n", obj->path);
     return (SUCCESS);
 }

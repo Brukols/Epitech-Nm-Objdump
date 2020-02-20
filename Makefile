@@ -18,10 +18,17 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/display_information.c	\
 					objdump/src/overall_header/display_overall_header.c	\
 					objdump/src/overall_header/file_format.c	\
-					objdump/src/overall_header/is_elf.c	\
+					objdump/src/overall_header/architecture.c	\
 					objdump/src/file/close_file.c	\
 					objdump/src/file/open_file.c	\
 					objdump/src/objdump_struct/init_objdump_struct.c	\
+					objdump/src/objdump_struct/destroy_objdump_struct.c	\
+					objdump/src/objdump_struct/init_elf_struct.c	\
+					objdump/src/error/file_has_error.c	\
+					objdump/src/error/good_ident.c	\
+					objdump/src/error/good_machine.c	\
+					objdump/src/error/good_type.c	\
+					objdump/src/error/good_version.c	\
 
 SRCS_TESTS	=	\
 

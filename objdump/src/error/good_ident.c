@@ -2,11 +2,10 @@
 ** EPITECH PROJECT, 2020
 ** objdump
 ** File description:
-** is_elf
+** good_ident
 */
 
 #include "../../include/objdump.h"
-#include <stdbool.h>
 #include <stdio.h>
 
 bool wrong_file_format(objdump_t *obj)
@@ -15,7 +14,7 @@ bool wrong_file_format(objdump_t *obj)
     return (false);
 }
 
-bool is_elf(objdump_t *obj)
+bool good_ident(objdump_t *obj)
 {
     if (obj->ehdr->e_ident[0] != ELFMAG0)
         return (wrong_file_format(obj));

@@ -6,12 +6,6 @@
 */
 
 #include "../include/objdump.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/mman.h>
 
 int display_information(char *path)
 {
@@ -21,7 +15,13 @@ int display_information(char *path)
         return (-1);
     if (obj.buf == (void *)-1)
         return (close_file(obj.fd));
+    init_elf_struct(&obj);
+    if (file_has_error(&obj)) {
+        destroy_objdump_struct(obj);
+        return (FAILURE);
+    }
     display_overall_header(&obj);
     //display_full_content(fd, path);
-    return (close_file(obj.fd));
+    destroy_objdump_struct(obj);
+    return (SUCCESS);
 }

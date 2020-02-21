@@ -7,8 +7,8 @@
 
 #include "../../../include/objdump.h"
 
-size_t get_sh_info(objdump_t *this)
+size_t get_sh_info(objdump_t *this, size_t index)
 {
-    return ((this->shdr.shdr32 ? this->shdr.shdr32->sh_info : \
-this->shdr.shdr64->sh_info));
+    return ((this->shdr.shdr32 ? this->shdr.shdr32[index].sh_info : \
+this->shdr.shdr64[index].sh_info));
 }

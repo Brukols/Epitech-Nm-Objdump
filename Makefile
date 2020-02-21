@@ -20,12 +20,14 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/overall_header/display_file_format.c	\
 					objdump/src/overall_header/display_architecture.c	\
 					objdump/src/overall_header/display_flags.c	\
+					objdump/src/overall_header/display_start_adress.c	\
 					objdump/src/file/close_file.c	\
 					objdump/src/file/open_file.c	\
 					objdump/src/objdump_struct/init_objdump_struct.c	\
 					objdump/src/objdump_struct/destroy_objdump_struct.c	\
 					objdump/src/objdump_struct/init_elf_struct.c	\
 					objdump/src/objdump_struct/init_phdr_struct.c	\
+					objdump/src/objdump_struct/init_shdr_struct.c	\
 					objdump/src/objdump_struct/init_flags.c	\
 					objdump/src/objdump_struct/flags/flag_d_paged.c	\
 					objdump/src/objdump_struct/flags/flag_dynamic.c	\

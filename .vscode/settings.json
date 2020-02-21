@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "objdump.h": "c"
+        "objdump.h": "c",
+        "string.h": "c"
     }
 }

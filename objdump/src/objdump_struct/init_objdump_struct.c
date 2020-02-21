@@ -9,6 +9,7 @@
 #include <sys/mman.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <unistd.h>
 
 objdump_t init_objdump_struct(char *path)
 {
@@ -17,7 +18,10 @@ objdump_t init_objdump_struct(char *path)
 
     obj.path = path;
     obj.fd = open_file(path);
-    fstat(obj.fd, &s);
+    if (obj.fd == -1)
+        return (obj);
+    if (fstat(obj.fd, &s) == -1)
+        return (obj);
     obj.buf = mmap(NULL, s.st_size, PROT_READ, MAP_PRIVATE, obj.fd, 0);
     return (obj);
 }

@@ -31,6 +31,7 @@ objdump_t init_objdump_struct(char *);
 void destroy_objdump_struct(objdump_t obj);
 void init_flags(objdump_t *obj);
 void init_phdr_struct(objdump_t *obj);
+void init_shdr_struct(objdump_t *obj);
 
 /* FLAGS */
 int flag_has_reloc(objdump_t *obj);
@@ -47,5 +48,6 @@ int flag_d_paged(objdump_t *obj);
 void display_file_format(objdump_t *obj);
 void display_architecture(objdump_t *obj);
 void display_flags(objdump_t *obj);
+void display_start_adress(objdump_t *obj);
 
 #endif /* !PROTOTYPES_H */

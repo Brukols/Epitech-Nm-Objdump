@@ -14,5 +14,6 @@ int init_elf_struct(objdump_t *obj)
         return (FAILURE);
     }
     init_phdr_struct(obj);
+    init_shdr_struct(obj);
     return (SUCCESS);
 }

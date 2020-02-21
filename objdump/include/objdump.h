@@ -20,18 +20,20 @@ typedef struct shdr_s shdr_t;
 
 struct shdr_s
 {
+    void *addrstrtable;
     Elf32_Shdr *shdr32;
     Elf64_Shdr *shdr64;
-    size_t (*get_sh_name)(objdump_t *this);
-    size_t (*get_sh_type)(objdump_t *this);
-    size_t (*get_sh_flags)(objdump_t *this);
-    size_t (*get_sh_addr)(objdump_t *this);
-    size_t (*get_sh_offset)(objdump_t *this);
-    size_t (*get_sh_size)(objdump_t *this);
-    size_t (*get_sh_link)(objdump_t *this);
-    size_t (*get_sh_info)(objdump_t *this);
-    size_t (*get_sh_addralign)(objdump_t *this);
-    size_t (*get_sh_entsize)(objdump_t *this);
+    size_t (*get_sh_name)(objdump_t *this, size_t);
+    size_t (*get_sh_type)(objdump_t *this, size_t);
+    size_t (*get_sh_flags)(objdump_t *this, size_t);
+    size_t (*get_sh_addr)(objdump_t *this, size_t);
+    size_t (*get_sh_offset)(objdump_t *this, size_t);
+    size_t (*get_sh_size)(objdump_t *this, size_t);
+    size_t (*get_sh_link)(objdump_t *this, size_t);
+    size_t (*get_sh_info)(objdump_t *this, size_t);
+    size_t (*get_sh_addralign)(objdump_t *this, size_t);
+    size_t (*get_sh_entsize)(objdump_t *this, size_t);
+    void *(*get_addrstrtable)(objdump_t *this);
 };
 
 struct phdr_s
@@ -68,16 +70,17 @@ size_t get_p_memsz(objdump_t *this);
 size_t get_p_flags(objdump_t *this);
 size_t get_p_align(objdump_t *this);
 
-size_t get_sh_name(objdump_t *this);
-size_t get_sh_type(objdump_t *this);
-size_t get_sh_flags(objdump_t *this);
-size_t get_sh_addr(objdump_t *this);
-size_t get_sh_offset(objdump_t *this);
-size_t get_sh_size(objdump_t *this);
-size_t get_sh_link(objdump_t *this);
-size_t get_sh_info(objdump_t *this);
-size_t get_sh_addralign(objdump_t *this);
-size_t get_sh_entsize(objdump_t *this);
+size_t get_sh_name(objdump_t *this, size_t);
+size_t get_sh_type(objdump_t *this, size_t);
+size_t get_sh_flags(objdump_t *this, size_t);
+size_t get_sh_addr(objdump_t *this, size_t);
+size_t get_sh_offset(objdump_t *this, size_t);
+size_t get_sh_size(objdump_t *this, size_t);
+size_t get_sh_link(objdump_t *this, size_t);
+size_t get_sh_info(objdump_t *this, size_t);
+size_t get_sh_addralign(objdump_t *this, size_t);
+size_t get_sh_entsize(objdump_t *this, size_t);
+void *get_addrstrtable(objdump_t *this, size_t index);
 
 #include "prototypes.h"
 

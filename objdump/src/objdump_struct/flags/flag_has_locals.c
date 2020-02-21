@@ -9,5 +9,6 @@
 
 int flag_has_locals(objdump_t *obj)
 {
+    (void)obj;
     return (0);
 }

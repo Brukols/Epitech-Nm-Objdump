@@ -9,5 +9,6 @@
 
 int flag_wp_text(objdump_t *obj)
 {
+    (void)obj;
     return (0);
 }

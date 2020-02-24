@@ -50,4 +50,7 @@ void display_architecture(objdump_t *obj);
 void display_flags(objdump_t *obj);
 void display_start_adress(objdump_t *obj);
 
+/* SECTIONS */
+int display_sections(objdump_t *obj);
+
 #endif /* !PROTOTYPES_H */

@@ -20,7 +20,7 @@ int display_information(char *path)
         return (FAILURE);
     }
     display_overall_header(&obj);
-    //display_full_content(fd, path);
+    display_sections(&obj);
     destroy_objdump_struct(obj);
     return (SUCCESS);
 }

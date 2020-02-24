@@ -15,6 +15,7 @@ typedef struct architecture_s
 } architecture_t;
 
 const architecture_t architecture[] = {
+    {EM_NONE, "UNKOWN!"},
     {EM_M32, "m32"},
     {EM_SPARC, "sparc"},
     {EM_386, "386"},

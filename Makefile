@@ -23,54 +23,58 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/overall_header/display_start_adress.c	\
 					objdump/src/sections/display_sections.c	\
 					objdump/src/sections/display_bytes.c	\
-					objdump/src/file/close_file.c	\
-					objdump/src/file/open_file.c	\
-					objdump/src/objdump_struct/init_objdump_struct.c	\
-					objdump/src/objdump_struct/destroy_objdump_struct.c	\
-					objdump/src/objdump_struct/init_elf_struct.c	\
-					objdump/src/objdump_struct/init_phdr_struct.c	\
-					objdump/src/objdump_struct/init_shdr_struct.c	\
-					objdump/src/objdump_struct/init_flags.c	\
-					objdump/src/objdump_struct/flags/flag_d_paged.c	\
-					objdump/src/objdump_struct/flags/flag_dynamic.c	\
-					objdump/src/objdump_struct/flags/flag_exec_p.c	\
-					objdump/src/objdump_struct/flags/flag_has_debug.c	\
-					objdump/src/objdump_struct/flags/flag_has_lineno.c	\
-					objdump/src/objdump_struct/flags/flag_has_locals.c	\
-					objdump/src/objdump_struct/flags/flag_has_reloc.c	\
-					objdump/src/objdump_struct/flags/flag_has_syms.c	\
-					objdump/src/objdump_struct/flags/flag_wp_text.c	\
-					objdump/src/objdump_struct/phdr/get_p_align.c	\
-					objdump/src/objdump_struct/phdr/get_p_filesz.c	\
-					objdump/src/objdump_struct/phdr/get_p_flags.c	\
-					objdump/src/objdump_struct/phdr/get_p_memsz.c	\
-					objdump/src/objdump_struct/phdr/get_p_offset.c	\
-					objdump/src/objdump_struct/phdr/get_p_paddr.c	\
-					objdump/src/objdump_struct/phdr/get_p_type.c	\
-					objdump/src/objdump_struct/phdr/get_p_vaddr.c	\
-					objdump/src/objdump_struct/shdr/get_sh_addr.c	\
-					objdump/src/objdump_struct/shdr/get_sh_addralign.c	\
-					objdump/src/objdump_struct/shdr/get_sh_entsize.c	\
-					objdump/src/objdump_struct/shdr/get_sh_flags.c	\
-					objdump/src/objdump_struct/shdr/get_sh_info.c	\
-					objdump/src/objdump_struct/shdr/get_sh_link.c	\
-					objdump/src/objdump_struct/shdr/get_sh_name.c	\
-					objdump/src/objdump_struct/shdr/get_sh_offset.c	\
-					objdump/src/objdump_struct/shdr/get_sh_size.c	\
-					objdump/src/objdump_struct/shdr/get_sh_type.c	\
-					objdump/src/error/file_has_error.c	\
-					objdump/src/error/good_ident.c	\
-					objdump/src/error/good_machine.c	\
-					objdump/src/error/good_type.c	\
-					objdump/src/error/good_version.c	\
+					objdump/src/rewrite_functions/close_file.c	\
+					objdump/src/rewrite_functions/open_file.c	\
+					objdump/src/rewrite_functions/wrong_file_format.c	\
 
 SRCS_TESTS	=	\
+
+SRCS_ELF	=		src/init_objdump_struct.c	\
+					src/destroy_objdump_struct.c	\
+					src/init_elf_struct.c	\
+					src/init_phdr_struct.c	\
+					src/init_shdr_struct.c	\
+					src/init_flags.c	\
+					src/flags/flag_d_paged.c	\
+					src/flags/flag_dynamic.c	\
+					src/flags/flag_exec_p.c	\
+					src/flags/flag_has_debug.c	\
+					src/flags/flag_has_lineno.c	\
+					src/flags/flag_has_locals.c	\
+					src/flags/flag_has_reloc.c	\
+					src/flags/flag_has_syms.c	\
+					src/flags/flag_wp_text.c	\
+					src/phdr/get_p_align.c	\
+					src/phdr/get_p_filesz.c	\
+					src/phdr/get_p_flags.c	\
+					src/phdr/get_p_memsz.c	\
+					src/phdr/get_p_offset.c	\
+					src/phdr/get_p_paddr.c	\
+					src/phdr/get_p_type.c	\
+					src/phdr/get_p_vaddr.c	\
+					src/shdr/get_sh_addr.c	\
+					src/shdr/get_sh_addralign.c	\
+					src/shdr/get_sh_entsize.c	\
+					src/shdr/get_sh_flags.c	\
+					src/shdr/get_sh_info.c	\
+					src/shdr/get_sh_link.c	\
+					src/shdr/get_sh_name.c	\
+					src/shdr/get_sh_offset.c	\
+					src/shdr/get_sh_size.c	\
+					src/shdr/get_sh_type.c	\
+					src/error/file_has_error.c	\
+					src/error/good_ident.c	\
+					src/error/good_machine.c	\
+					src/error/good_type.c	\
+					src/error/good_version.c	\
 
 OBJS_NM	=	$(SRCS_NM:.c=.o)
 
 OBJS_OBJDUMP	=	$(SRCS_OBJDUMP:.c=.o)
 
 OBJS_TESTS		=	$(SRCS_TESTS:.c=.o)
+
+OBJS_ELF	=	$(SRCS_ELF:.c=.o)
 
 CFLAGS	=	-W -Wall -Wextra
 
@@ -80,7 +84,7 @@ CC	=	gcc
 
 RM		=		rm -f
 
-all: nm objdump
+all: $(OBJS_ELF) nm objdump
 
 nm: $(NAME_NM)
 
@@ -90,11 +94,12 @@ $(NAME_NM): $(OBJS_NM)
 			$(CC) -o $(NAME_NM) $(OBJS_NM) $(LDFLAGS)
 
 $(NAME_OBJDUMP): $(OBJS_OBJDUMP)
-			$(CC) -o $(NAME_OBJDUMP) $(OBJS_OBJDUMP) $(LDFLAGS)
+			$(CC) -o $(NAME_OBJDUMP) $(OBJS_OBJDUMP) $(OBJS_ELF) $(LDFLAGS)
 
 clean:
 	$(RM) $(OBJS_NM)
 	$(RM) $(OBJS_OBJDUMP)
+	$(RM) $(OBJS_ELF)
 
 clean_objdump:
 	$(RM) $(OBJS_OBJDUMP)

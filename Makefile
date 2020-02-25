@@ -12,6 +12,7 @@ NAME_NM		=	my_nm
 NAME_TESTS	=	unit_tests
 
 SRCS_NM		=		nm/src/main.c	\
+					nm/src/nm.c	\
 					nm/src/rewrite_functions/close_file.c	\
 					nm/src/rewrite_functions/open_file.c	\
 					nm/src/rewrite_functions/wrong_file_format.c	\

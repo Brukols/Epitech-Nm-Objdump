@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2020
 ** nm
 ** File description:
-** main
+** nm
 */
 
 #include "../include/nm.h"
 
-int main(int ac, char const **av)
+int nm(int ac, const char **av)
 {
-    return (nm(ac, av));
+    return (SUCCESS);
 }

@@ -38,5 +38,7 @@ int flag_d_paged(elf_t *obj);
 int open_file(char *path);
 int close_file(int fd);
 bool wrong_file_format(elf_t *obj);
+elf_t path_is_directory(elf_t obj);
+bool wrong_type(elf_t *obj);
 
 #endif /* !PROTOTYPES_H */

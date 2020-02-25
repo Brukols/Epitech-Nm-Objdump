@@ -26,6 +26,9 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/rewrite_functions/close_file.c	\
 					objdump/src/rewrite_functions/open_file.c	\
 					objdump/src/rewrite_functions/wrong_file_format.c	\
+					objdump/src/rewrite_functions/path_is_directory.c	\
+					objdump/src/rewrite_functions/good_version.c	\
+					objdump/src/rewrite_functions/wrong_type.c	\
 
 SRCS_TESTS	=	\
 
@@ -64,9 +67,7 @@ SRCS_ELF	=		src/init_objdump_struct.c	\
 					src/shdr/get_sh_type.c	\
 					src/error/file_has_error.c	\
 					src/error/good_ident.c	\
-					src/error/good_machine.c	\
 					src/error/good_type.c	\
-					src/error/good_version.c	\
 
 OBJS_NM	=	$(SRCS_NM:.c=.o)
 

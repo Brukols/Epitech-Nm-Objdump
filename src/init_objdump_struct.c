@@ -12,14 +12,6 @@
 #include <unistd.h>
 #include <stdio.h>
 
-elf_t path_is_directory(elf_t obj)
-{
-    printf("objdump: Warning: '%s' is a directory\n", obj.path);
-    close_file(obj.fd);
-    obj.fd = -1;
-    return (obj);
-}
-
 elf_t init_objdump_struct(char *path)
 {
     elf_t obj;

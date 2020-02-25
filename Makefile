@@ -12,6 +12,12 @@ NAME_NM		=	my_nm
 NAME_TESTS	=	unit_tests
 
 SRCS_NM		=		nm/src/main.c	\
+					nm/src/rewrite_functions/close_file.c	\
+					nm/src/rewrite_functions/open_file.c	\
+					nm/src/rewrite_functions/wrong_file_format.c	\
+					nm/src/rewrite_functions/path_is_directory.c	\
+					nm/src/rewrite_functions/good_version.c	\
+					nm/src/rewrite_functions/wrong_type.c	\
 
 SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/objdump.c	\
@@ -92,7 +98,7 @@ nm: $(NAME_NM)
 objdump: $(NAME_OBJDUMP)
 
 $(NAME_NM): $(OBJS_NM)
-			$(CC) -o $(NAME_NM) $(OBJS_NM) $(LDFLAGS)
+			$(CC) -o $(NAME_NM) $(OBJS_NM) $(OBJS_ELF) $(LDFLAGS)
 
 $(NAME_OBJDUMP): $(OBJS_OBJDUMP)
 			$(CC) -o $(NAME_OBJDUMP) $(OBJS_OBJDUMP) $(OBJS_ELF) $(LDFLAGS)

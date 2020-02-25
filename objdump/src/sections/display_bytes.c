@@ -60,9 +60,9 @@ void display_bytes(objdump_t *obj, int index)
     int size = obj->shdr.get_sh_size(obj, index);
     size_t addr = obj->shdr.get_sh_offset(obj, index);
 
-    printf("Addralign : %ld\n", obj->shdr.get_sh_addralign(obj, index));
-    printf("Size : %ld\n", obj->shdr.get_sh_size(obj, index));
-    printf("Entsize : %ld\n", obj->shdr.get_sh_entsize(obj, index));
+    // printf("Addralign : %ld\n", obj->shdr.get_sh_addralign(obj, index));
+    // printf("Size : %ld\n", obj->shdr.get_sh_size(obj, index));
+    // printf("Entsize : %ld\n", obj->shdr.get_sh_entsize(obj, index));
     for (int i = 0; i < size; i++) {
         printf(" %04lx ", (obj->shdr.get_sh_addr(obj, index) + i - (i / 16)));
         display_line_bytes(obj, index, &i, &addr);

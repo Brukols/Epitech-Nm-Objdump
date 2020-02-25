@@ -22,6 +22,7 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/overall_header/display_flags.c	\
 					objdump/src/overall_header/display_start_adress.c	\
 					objdump/src/sections/display_sections.c	\
+					objdump/src/sections/display_bytes.c	\
 					objdump/src/file/close_file.c	\
 					objdump/src/file/open_file.c	\
 					objdump/src/objdump_struct/init_objdump_struct.c	\

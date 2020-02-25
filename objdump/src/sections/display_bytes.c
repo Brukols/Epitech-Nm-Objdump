@@ -15,41 +15,24 @@ static void print_empty_bytes(int b, int bytes)
         for (size_t i = 0; i < 4 && bytes < 16; i++, bytes++) {
             printf("  ");
         }
-        if (bytes != 16)
-            printf(" ");
     }
-}
-
-static size_t compute_size(objdump_t *obj, int index)
-{
-    size_t size = obj->shdr.get_sh_size(obj, index);
-    size_t addralign = obj->shdr.get_sh_addralign(obj, index);
-
-    if (addralign == 0 && addralign == 1) {
-
-    }
-    return (size);
 }
 
 static void display_line_bytes(objdump_t *obj, int index, int *i, size_t *addr)
 {
     const unsigned char *string = obj->buf;
-    int size = compute_size(obj, index);
+    int size = obj->shdr.get_sh_size(obj, index);
     int bytes = 0;
     char buffer[16];
 
     memset(buffer, 0, 17);
-    for (; bytes < 16 && *i < size;) {
-        for (int a = 0; a < 4 && *i < size; a++, bytes++, (*i)++, (*addr)++) {
-            printf("%02x", (string[*addr]) & 0xff);
-            buffer[bytes] = (isprint(string[*addr]) ? string[*addr] : '.');
+    for (; bytes < 16;) {
+        for (int a = 0; a < 4; a++, bytes++, (*i)++, (*addr)++) {
+            printf((*i < size ? "%02x" : "  "), (*i < size ? string[*addr] & 0xff : ' '));
+            buffer[bytes] = (*i < size ? (isprint(string[*addr]) ? string[*addr] : '.') : ' ');
         }
         printf(" ");
-        if (*i == size)
-            break;
     }
-    if (bytes < 16)
-        print_empty_bytes(*i, bytes);
     printf(" %s", buffer);
     printf("\n");
 }

@@ -9,15 +9,6 @@
 #include <stdio.h>
 #include <ctype.h>
 
-static void print_empty_bytes(int b, int bytes)
-{
-    while (bytes < 16) {
-        for (size_t i = 0; i < 4 && bytes < 16; i++, bytes++) {
-            printf("  ");
-        }
-    }
-}
-
 static void display_line_bytes(objdump_t *obj, int index, int *i, size_t *addr)
 {
     const unsigned char *string = obj->buf;
@@ -28,8 +19,10 @@ static void display_line_bytes(objdump_t *obj, int index, int *i, size_t *addr)
     memset(buffer, 0, 17);
     for (; bytes < 16;) {
         for (int a = 0; a < 4; a++, bytes++, (*i)++, (*addr)++) {
-            printf((*i < size ? "%02x" : "  "), (*i < size ? string[*addr] & 0xff : ' '));
-            buffer[bytes] = (*i < size ? (isprint(string[*addr]) ? string[*addr] : '.') : ' ');
+            printf((*i < size ? "%02x" : "  "), \
+(*i < size ? string[*addr] & 0xff : '\0'));
+            buffer[bytes] = (*i < size ? \
+(isprint(string[*addr]) ? string[*addr] : '.') : ' ');
         }
         printf(" ");
     }

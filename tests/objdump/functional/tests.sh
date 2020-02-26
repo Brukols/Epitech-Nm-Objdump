@@ -32,6 +32,8 @@ exec_test()
         ((test_passed++))
     else
         echo -ne "${RED}${bold}KO${NC}\n"
+        echo -ne "$result" > result
+        echo -ne "$expect" > expect
         ((test_failed++))
     fi
 }

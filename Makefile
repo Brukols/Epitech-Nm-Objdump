@@ -30,6 +30,7 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/overall_header/display_start_adress.c	\
 					objdump/src/sections/display_sections.c	\
 					objdump/src/sections/display_bytes.c	\
+					objdump/src/sections/printf_string.c	\
 					objdump/src/rewrite_functions/close_file.c	\
 					objdump/src/rewrite_functions/open_file.c	\
 					objdump/src/rewrite_functions/wrong_file_format.c	\
@@ -135,5 +136,8 @@ debug: re
 
 debug_objdump: CFLAGS += -g
 debug_objdump: re_objdump
+
+functional_tests: re
+			./tests/objdump/functional/tests.sh
 
 .PHONY: all nm objdump clean fclean re debug tests_run re_nm re_objdump clean_objdump fclean_objdump debug_objdump

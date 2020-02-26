@@ -35,5 +35,6 @@ void display_start_adress(objdump_t *obj);
 /* SECTIONS */
 int display_sections(objdump_t *obj);
 void display_bytes(objdump_t *obj, int index);
+const char *printf_string(objdump_t *obj, int index);
 
 #endif /* !PROTOTYPES_H */

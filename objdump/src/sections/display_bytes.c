@@ -34,9 +34,10 @@ void display_bytes(objdump_t *obj, int index)
 {
     int size = obj->shdr.get_sh_size(obj, index);
     size_t addr = obj->shdr.get_sh_offset(obj, index);
+    const char *string_printf = printf_string(obj, index);
 
     for (int i = 0; i < size;) {
-        printf(" %04lx ", (obj->shdr.get_sh_addr(obj, index) + i));
+        printf(string_printf, (obj->shdr.get_sh_addr(obj, index) + i));
         display_line_bytes(obj, index, &i, &addr);
     }
 }

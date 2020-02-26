@@ -32,8 +32,6 @@ exec_test()
         ((test_passed++))
     else
         echo -ne "${RED}${bold}KO${NC}\n"
-        echo -ne "$result" > result
-        echo -ne "$expect" > expect
         ((test_failed++))
     fi
 }
@@ -41,5 +39,6 @@ exec_test()
 exec_test "/bin/ls" "/bin/ls"
 exec_test "/bin/cat" "/bin/cat"
 exec_test "/bin/touch" "/bin/touch"
+exec_test "/usr/lib64/ld-linux-x86-64.so.2" "/usr/lib64/ld-linux-x86-64.so.2"
 
 exit 0

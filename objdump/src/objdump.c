@@ -10,6 +10,8 @@
 
 int objdump(int ac, char **av)
 {
+    if (ac == 1)
+        display_information("a.out");
     for (int i = 1; i < ac; i++) {
         display_information(av[i]);
     }

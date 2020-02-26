@@ -10,10 +10,14 @@
 
 int objdump(int ac, char **av)
 {
-    if (ac == 1)
-        display_information("a.out");
-    for (int i = 1; i < ac; i++) {
-        display_information(av[i]);
+    bool error = false;
+    if (ac == 1) {
+        if (display_information("a.out") != SUCCESS)
+            error = true;
     }
-    return (0);
+    for (int i = 1; i < ac; i++) {
+        if (display_information(av[i]) != SUCCESS)
+            error = true;
+    }
+    return ((error ? 84 : 0));
 }

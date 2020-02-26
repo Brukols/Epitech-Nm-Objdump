@@ -93,11 +93,11 @@ CC	=	gcc
 
 RM		=		rm -f
 
-all: $(OBJS_ELF) nm objdump
+all: $(OBJS_ELF) $(NAME_NM) $(NAME_OBJDUMP)
 
-nm: $(NAME_NM)
+nm: $(OBJS_ELF) $(NAME_NM)
 
-objdump: $(NAME_OBJDUMP)
+objdump: $(OBJS_ELF) $(NAME_OBJDUMP)
 
 $(NAME_NM): $(OBJS_NM)
 			$(CC) -o $(NAME_NM) $(OBJS_NM) $(OBJS_ELF) $(LDFLAGS)

@@ -9,7 +9,7 @@
 
 int flag_exec_p(elf_t *obj)
 {
-    if (obj->ehdr->e_type == ET_EXEC)
+    if (obj->ehdr.get_e_type(obj) == ET_EXEC)
         return (EXEC_P);
     return (0);
 }

@@ -25,7 +25,7 @@ int display_sections(objdump_t *obj)
 {
     const char *name;
 
-    for (size_t i = 1; i < obj->ehdr->e_shnum; i++) {
+    for (size_t i = 1; i < obj->ehdr.get_e_shnum(obj); i++) {
         name = obj->shdr.addrstrtable + obj->shdr.get_sh_name(obj, i);
         if (obj->shdr.get_sh_type(obj, i) == SHT_NOBITS)
             continue;

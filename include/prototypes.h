@@ -18,6 +18,7 @@ void init_phdr_struct(elf_t *obj);
 void init_shdr_struct(elf_t *obj);
 int init_elfs_struct(elf_t *obj);
 void init_sym_struct(elf_t *elf);
+void init_ehdr_struct(elf_t *elf);
 
 /* ERROR */
 bool good_ident(elf_t *obj);

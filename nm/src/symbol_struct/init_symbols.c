@@ -29,6 +29,7 @@ static symbol_t *insert_symbol(symbol_t *symbols, nm_t *nm, int i)
     symbols->next = NULL;
     symbols->name = nm->sym.get_symbol_name(nm, i);
     symbols->addr = nm->sym.get_st_value(nm, i);
+    symbols->letter = 'T';
     return (symbols);
 }
 

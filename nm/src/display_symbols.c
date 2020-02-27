@@ -15,9 +15,9 @@ void display_symbols(nm_t *nm)
 
     for (; it; it = it->next) {
         if (it->addr == 0) {
-            printf("                 %s\n", it->name);
+            printf("                 %c %s\n", it->letter, it->name);
         } else {
-            printf("%016lx %s\n", it->addr, it->name);
+            printf("%016lx %c %s\n", it->addr, it->letter, it->name);
         }
     }
 

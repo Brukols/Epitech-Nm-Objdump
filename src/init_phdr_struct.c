@@ -9,11 +9,11 @@
 
 void init_phdr_struct(elf_t *obj)
 {
-    if (obj->ehdr->e_ident[EI_CLASS] == ELFCLASS32) {
+    if (obj->ehdr.get_e_ident(obj)[EI_CLASS] == ELFCLASS32) {
         obj->phdr.phdr64 = NULL;
-        obj->phdr.phdr32 = obj->buf + (obj->ehdr->e_phoff);
+        obj->phdr.phdr32 = obj->buf + (obj->ehdr.get_e_phoff(obj));
     } else {
-        obj->phdr.phdr64 = obj->buf + (obj->ehdr->e_phoff);
+        obj->phdr.phdr64 = obj->buf + (obj->ehdr.get_e_phoff(obj));
         obj->phdr.phdr32 = NULL;
     }
     obj->phdr.get_p_align = &get_p_align;

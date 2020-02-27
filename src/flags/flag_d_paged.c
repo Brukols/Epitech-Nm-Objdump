@@ -9,7 +9,7 @@
 
 int flag_d_paged(elf_t *obj)
 {
-    if (obj->ehdr->e_phnum > 0)
+    if (obj->ehdr.get_e_phnum(obj) > 0)
         return (D_PAGED);
     return (0);
 }

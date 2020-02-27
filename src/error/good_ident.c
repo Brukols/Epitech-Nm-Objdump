@@ -19,12 +19,12 @@ bool good_ident(elf_t *obj)
     };
 
     for (size_t i = 0; i < 5; i++) {
-        if (obj->ehdr->e_ident[bytes[i]] != defines[i])
+        if (obj->ehdr.ehdr64->e_ident[bytes[i]] != defines[i])
             return (wrong_file_format(obj));
     }
-    if (obj->ehdr->e_ident[4] == ELFCLASSNONE)
+    if (obj->ehdr.ehdr64->e_ident[4] == ELFCLASSNONE)
         return (wrong_file_format(obj));
-    if (obj->ehdr->e_ident[5] == ELFDATANONE)
+    if (obj->ehdr.ehdr64->e_ident[5] == ELFDATANONE)
         return (wrong_file_format(obj));
     return (true);
 }

@@ -50,6 +50,7 @@ SRCS_ELF	=		src/init_elf_struct.c	\
 					src/init_phdr_struct.c	\
 					src/init_shdr_struct.c	\
 					src/init_sym_struct.c	\
+					src/init_ehdr_struct.c	\
 					src/init_flags.c	\
 					src/flags/flag_d_paged.c	\
 					src/flags/flag_dynamic.c	\
@@ -60,6 +61,20 @@ SRCS_ELF	=		src/init_elf_struct.c	\
 					src/flags/flag_has_reloc.c	\
 					src/flags/flag_has_syms.c	\
 					src/flags/flag_wp_text.c	\
+					src/ehdr/get_e_ehsize.c	\
+					src/ehdr/get_e_entry.c	\
+					src/ehdr/get_e_flags.c	\
+					src/ehdr/get_e_ident.c	\
+					src/ehdr/get_e_machine.c	\
+					src/ehdr/get_e_phentsize.c	\
+					src/ehdr/get_e_phnum.c	\
+					src/ehdr/get_e_phoff.c	\
+					src/ehdr/get_e_shentsize.c	\
+					src/ehdr/get_e_shnum.c	\
+					src/ehdr/get_e_shoff.c	\
+					src/ehdr/get_e_shstrndx.c	\
+					src/ehdr/get_e_type.c	\
+					src/ehdr/get_e_version.c	\
 					src/phdr/get_p_align.c	\
 					src/phdr/get_p_filesz.c	\
 					src/phdr/get_p_flags.c	\

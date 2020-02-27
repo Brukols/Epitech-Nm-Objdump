@@ -10,7 +10,7 @@
 
 typedef struct architecture_s
 {
-    int define;
+    size_t define;
     char *name;
 } architecture_t;
 
@@ -39,7 +39,7 @@ const architecture_t architecture[] = {
 void display_architecture(objdump_t *obj)
 {
     for (size_t i = 0; i < 18; i++) {
-        if (obj->ehdr->e_machine == architecture[i].define) {
+        if (obj->ehdr.get_e_machine(obj) == architecture[i].define) {
             printf("architecture: i386:%s, ", architecture[i].name);
         }
     }

@@ -9,7 +9,7 @@
 
 int flag_has_reloc(elf_t *obj)
 {
-    if (obj->ehdr->e_type == ET_REL)
+    if (obj->ehdr.get_e_type(obj) == ET_REL)
         return (HAS_RELOC);
     return (0);
 }

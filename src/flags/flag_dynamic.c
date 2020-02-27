@@ -9,7 +9,7 @@
 
 int flag_dynamic(elf_t *obj)
 {
-    if (obj->ehdr->e_type == ET_DYN)
+    if (obj->ehdr.get_e_type(obj) == ET_DYN)
         return (DYNAMIC);
     return (0);
 }

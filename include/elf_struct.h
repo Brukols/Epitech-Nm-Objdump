@@ -14,6 +14,7 @@
 #include "macros.h"
 #include "flags.h"
 
+typedef struct ehdr_s ehdr_t;
 typedef struct phdr_s phdr_t;
 typedef struct elf_s elf_t;
 typedef struct shdr_s shdr_t;
@@ -66,17 +67,52 @@ struct phdr_s
     size_t (*get_p_align)(elf_t *);
 };
 
+struct ehdr_s
+{
+    Elf32_Ehdr *ehdr32;
+    Elf64_Ehdr *ehdr64;
+    size_t (*get_e_ehsize)(elf_t *elf);
+    size_t (*get_e_entry)(elf_t *elf);
+    size_t (*get_e_flags)(elf_t *elf);
+    unsigned char *(*get_e_ident)(elf_t *elf);
+    size_t (*get_e_machine)(elf_t *elf);
+    size_t (*get_e_phentsize)(elf_t *elf);
+    size_t (*get_e_phnum)(elf_t *elf);
+    size_t (*get_e_phoff)(elf_t *elf);
+    size_t (*get_e_shentsize)(elf_t *elf);
+    size_t (*get_e_shnum)(elf_t *elf);
+    size_t (*get_e_shoff)(elf_t *elf);
+    size_t (*get_e_shstrndx)(elf_t *elf);
+    size_t (*get_e_type)(elf_t *elf);
+    size_t (*get_e_version)(elf_t *elf);
+};
+
 struct elf_s
 {
     int fd;
     void *buf;
     char *path;
     int flags;
-    Elf64_Ehdr *ehdr;
+    ehdr_t ehdr;
     phdr_t phdr;
     shdr_t shdr;
     sym_t sym;
 };
+
+size_t get_e_ehsize(elf_t *elf);
+size_t get_e_entry(elf_t *elf);
+size_t get_e_flags(elf_t *elf);
+unsigned char *get_e_ident(elf_t *elf);
+size_t get_e_machine(elf_t *elf);
+size_t get_e_phentsize(elf_t *elf);
+size_t get_e_phnum(elf_t *elf);
+size_t get_e_phoff(elf_t *elf);
+size_t get_e_shentsize(elf_t *elf);
+size_t get_e_shnum(elf_t *elf);
+size_t get_e_shoff(elf_t *elf);
+size_t get_e_shstrndx(elf_t *elf);
+size_t get_e_type(elf_t *elf);
+size_t get_e_version(elf_t *elf);
 
 size_t get_p_type(elf_t *);
 size_t get_p_offset(elf_t *);

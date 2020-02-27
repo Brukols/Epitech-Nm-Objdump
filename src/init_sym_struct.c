@@ -9,7 +9,7 @@
 
 static void init_sym(elf_t *elf, int index)
 {
-    if (elf->ehdr->e_ident[EI_CLASS] == ELFCLASS32) {
+    if (elf->ehdr.get_e_ident(elf)[EI_CLASS] == ELFCLASS32) {
         elf->sym.sym64 = NULL;
         elf->sym.sym32 = (Elf32_Sym *)(elf->buf + \
 elf->shdr.get_sh_offset(elf, index));
@@ -37,7 +37,7 @@ void init_sym_struct(elf_t *elf)
 {
     const char *name;
 
-    for (size_t i = 1; i < elf->ehdr->e_shnum; i++) {
+    for (size_t i = 1; i < elf->ehdr.get_e_shnum(elf); i++) {
         name = elf->shdr.addrstrtable + elf->shdr.get_sh_name(elf, i);
         if (strcmp(name, ".symtab") == 0) {
             init_sym(elf, i);

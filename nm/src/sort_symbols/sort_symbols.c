@@ -7,7 +7,7 @@
 
 #include "../../include/nm.h"
 
-static void swap_list(symbol_t *symbols)
+static symbol_t *swap_list(symbol_t *symbols)
 {
     symbol_t *first = symbols->next;
     symbol_t *second = symbols->next->next;
@@ -15,6 +15,7 @@ static void swap_list(symbol_t *symbols)
     symbols->next = second;
     first->next = second->next;
     second->next = first;
+    return (second);
 }
 
 static symbol_t *sort(symbol_t *symbols)
@@ -25,7 +26,7 @@ static symbol_t *sort(symbol_t *symbols)
     while (symbols->next) {
         if (compare_symbols(symbols->name, symbols->next->name) > 0) {
             first = (!last ? symbols->next : first);
-            swap_list((!last ? symbols : last));
+            symbols = swap_list((!last ? symbols : last));
         }
         last = symbols;
         symbols = symbols->next;

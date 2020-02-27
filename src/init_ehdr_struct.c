@@ -12,7 +12,8 @@ void init_ehdr_struct(elf_t *elf)
     if (elf->ehdr.ehdr64->e_ident[EI_CLASS] == ELFCLASS32) {
         elf->ehdr.ehdr32 = elf->buf;
         elf->ehdr.ehdr64 = NULL;
-    }
+    } else
+        elf->ehdr.ehdr32 = NULL;
     elf->ehdr.get_e_ehsize = &get_e_ehsize;
     elf->ehdr.get_e_entry = &get_e_entry;
     elf->ehdr.get_e_flags = &get_e_flags;

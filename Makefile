@@ -23,6 +23,9 @@ SRCS_NM		=		nm/src/main.c	\
 					nm/src/rewrite_functions/path_is_directory.c	\
 					nm/src/rewrite_functions/good_version.c	\
 					nm/src/rewrite_functions/wrong_type.c	\
+					nm/src/sort_symbols/compare_symbols.c	\
+					nm/src/sort_symbols/list_is_not_sort.c	\
+					nm/src/sort_symbols/sort_symbols.c	\
 
 SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/objdump.c	\

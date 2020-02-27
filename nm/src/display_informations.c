@@ -6,8 +6,8 @@
 */
 
 #include "../include/nm.h"
-
 #include <stdio.h>
+
 int display_informations(char *path)
 {
     nm_t nm = init_elf_struct(path);

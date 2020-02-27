@@ -20,7 +20,10 @@ int display_informations(char *path)
         destroy_elf_struct(nm);
         return (FAILURE);
     }
-    display_symbols(&nm);
+    if (!nm.sym.sym32 && !nm.sym.sym64)
+        printf("nm: %s: no symbols\n", nm.path);
+    else
+        display_symbols(&nm);
     destroy_elf_struct(nm);
     return (SUCCESS);
 }

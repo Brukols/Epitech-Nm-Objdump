@@ -17,6 +17,8 @@ typedef struct section_s {
 const section_t sections[] = {
     {'u', &is_min_u},
     {'U', &is_maj_u},
+    {'w', &is_min_w},
+    {'W', &is_maj_w},
     {'v', &is_min_v},
     {'V', &is_maj_v},
     {'a', &is_min_a},
@@ -35,7 +37,7 @@ const section_t sections[] = {
 
 static char init_letter(nm_t *nm, int i)
 {
-    for (size_t a = 0; a < 16; a++) {
+    for (size_t a = 0; a < 18; a++) {
         if (sections[a].ptr(nm, i) == true)
             return (sections[a].letter);
     }

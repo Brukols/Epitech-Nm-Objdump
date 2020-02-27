@@ -38,5 +38,7 @@ bool is_maj_u(nm_t *nm, int i);
 bool is_min_u(nm_t *nm, int i);
 bool is_maj_v(nm_t *nm, int i);
 bool is_min_v(nm_t *nm, int i);
+bool is_maj_w(nm_t *nm, int i);
+bool is_min_w(nm_t *nm, int i);
 
 #endif /* !PROTOTYPES_H */

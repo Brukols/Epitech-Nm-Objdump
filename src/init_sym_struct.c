@@ -36,14 +36,23 @@ static void init_functions(elf_t *elf)
 void init_sym_struct(elf_t *elf)
 {
     const char *name;
+    bool has_sym = false;
+    bool has_strtab = false;
 
     for (size_t i = 1; i < elf->ehdr.get_e_shnum(elf); i++) {
         name = elf->shdr.addrstrtable + elf->shdr.get_sh_name(elf, i);
         if (strcmp(name, ".symtab") == 0) {
             init_sym(elf, i);
+            has_sym = true;
         } else if (strcmp(name, ".strtab") == 0) {
             elf->sym.strtab = elf->buf + elf->shdr.get_sh_offset(elf, i);
+            has_strtab = true;
         }
+    }
+    if (!has_sym || !has_strtab) {
+        elf->sym.sym64 = NULL;
+        elf->sym.sym32 = NULL;
+        return;
     }
     init_functions(elf);
 }

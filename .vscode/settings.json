@@ -2,6 +2,8 @@
     "files.associations": {
         "objdump.h": "c",
         "string.h": "c",
-        "elf_struct.h": "c"
+        "elf_struct.h": "c",
+        "nm.h": "c",
+        "algorithm": "c"
     }
 }

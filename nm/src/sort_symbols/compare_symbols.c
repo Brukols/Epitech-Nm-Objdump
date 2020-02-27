@@ -30,5 +30,9 @@ int compare_symbols(const char *s1, const char *s2)
         if (s2[i_s2])
             i_s2++;
     }
+    if (tolower(s1[i_s1]) < tolower(s2[i_s2]))
+        return (-1);
+    if (tolower(s1[i_s1]) > tolower(s2[i_s2]))
+        return (1);
     return (0);
 }

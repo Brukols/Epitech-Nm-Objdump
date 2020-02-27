@@ -11,41 +11,34 @@
 
 typedef struct section_s {
     char letter;
-    const char *name;
+    bool (*ptr)(nm_t *, int);
 } section_t;
+
+const section_t sections[] = {
+    {'u', &is_min_u},
+    {'U', &is_maj_u},
+    {'v', &is_min_v},
+    {'V', &is_maj_v},
+    {'a', &is_min_a},
+    {'A', &is_maj_a},
+    {'c', &is_min_c},
+    {'C', &is_maj_c},
+    {'b', &is_min_b},
+    {'B', &is_maj_b},
+    {'r', &is_min_r},
+    {'R', &is_maj_r},
+    {'d', &is_min_d},
+    {'D', &is_maj_d},
+    {'t', &is_min_t},
+    {'T', &is_maj_t}
+};
 
 static char init_letter(nm_t *nm, int i)
 {
-    if (nm->sym.get_st_shndx(nm, i) == STB_LOCAL)
-        return ('U');
-    if (nm->sym.sym32 && ELF32_ST_BIND(nm->sym.get_st_info(nm, i)) == STB_GNU_UNIQUE)
-        return ('u');
-    if (nm->sym.sym64 && ELF64_ST_BIND(nm->sym.get_st_info(nm, i)) == STB_GNU_UNIQUE)
-        return ('u');
-    if (nm->sym.sym64 && ELF64_ST_BIND(nm->sym.get_st_info(nm, i)) == STB_WEAK && ELF64_ST_TYPE(nm->sym.get_st_info(nm, i)) == STT_OBJECT) {
-        if (nm->sym.get_st_shndx(nm, i) == SHN_UNDEF)
-            return ('v');
-        return ('V');
+    for (size_t a = 0; a < 16; a++) {
+        if (sections[a].ptr(nm, i) == true)
+            return (sections[a].letter);
     }
-    if (nm->sym.sym32 && ELF32_ST_BIND(nm->sym.get_st_info(nm, i)) == STB_WEAK && ELF32_ST_TYPE(nm->sym.get_st_info(nm, i)) == STT_OBJECT) {
-        if (nm->sym.get_st_shndx(nm, i) == SHN_UNDEF)
-            return ('v');
-        return ('V');
-    }
-    if (nm->sym.get_st_shndx(nm, i) == SHN_ABS)
-        return ('A');
-    if (nm->sym.get_st_shndx(nm, i) == SHN_COMMON)
-        return ('C');
-    if (nm->shdr.get_sh_type(nm, nm->sym.get_st_shndx(nm, i)) == SHT_NOBITS && nm->shdr.get_sh_flags(nm, nm->sym.get_st_shndx(nm, i)) == (SHF_ALLOC | SHF_WRITE))
-        return ('B');
-    if (nm->shdr.get_sh_type(nm, nm->sym.get_st_shndx(nm, i)) == SHT_PROGBITS && nm->shdr.get_sh_flags(nm, nm->sym.get_st_shndx(nm, i)) == SHF_ALLOC)
-        return ('R');
-    if (nm->shdr.get_sh_type(nm, nm->sym.get_st_shndx(nm, i)) == SHT_PROGBITS && nm->shdr.get_sh_flags(nm, nm->sym.get_st_shndx(nm, i)) == (SHF_ALLOC | SHF_WRITE))
-        return ('D');
-    if (nm->shdr.get_sh_type(nm, nm->sym.get_st_shndx(nm, i)) == SHT_PROGBITS && nm->shdr.get_sh_flags(nm, nm->sym.get_st_shndx(nm, i)) == (SHF_ALLOC | SHF_EXECINSTR))
-        return ('T');
-    if (nm->shdr.get_sh_type(nm, nm->sym.get_st_shndx(nm, i)) == SHT_DYNAMIC)
-        return ('D');
     return ('?');
 }
 

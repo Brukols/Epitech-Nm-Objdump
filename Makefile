@@ -17,6 +17,22 @@ SRCS_NM		=		nm/src/main.c	\
 					nm/src/display_symbols.c	\
 					nm/src/symbol_struct/init_symbols.c	\
 					nm/src/symbol_struct/free_symbols.c	\
+					nm/src/symbol_struct/letters/is_maj_a.c	\
+					nm/src/symbol_struct/letters/is_maj_b.c	\
+					nm/src/symbol_struct/letters/is_maj_c.c	\
+					nm/src/symbol_struct/letters/is_maj_d.c	\
+					nm/src/symbol_struct/letters/is_maj_r.c	\
+					nm/src/symbol_struct/letters/is_maj_t.c	\
+					nm/src/symbol_struct/letters/is_maj_u.c	\
+					nm/src/symbol_struct/letters/is_maj_v.c	\
+					nm/src/symbol_struct/letters/is_min_a.c	\
+					nm/src/symbol_struct/letters/is_min_b.c	\
+					nm/src/symbol_struct/letters/is_min_c.c	\
+					nm/src/symbol_struct/letters/is_min_d.c	\
+					nm/src/symbol_struct/letters/is_min_r.c	\
+					nm/src/symbol_struct/letters/is_min_t.c	\
+					nm/src/symbol_struct/letters/is_min_u.c	\
+					nm/src/symbol_struct/letters/is_min_v.c	\
 					nm/src/rewrite_functions/close_file.c	\
 					nm/src/rewrite_functions/open_file.c	\
 					nm/src/rewrite_functions/wrong_file_format.c	\

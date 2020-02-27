@@ -18,7 +18,7 @@ const architecture_t architecture[] = {
     {EM_NONE, "UNKOWN!"},
     {EM_M32, "m32"},
     {EM_SPARC, "sparc"},
-    {EM_386, "386"},
+    {EM_386, "i386"},
     {EM_68K, "68k"},
     {EM_88K, "88k"},
     {EM_860, "860"},
@@ -32,7 +32,7 @@ const architecture_t architecture[] = {
     {EM_SH, "sh"},
     {EM_SPARCV9, "sparcv9"},
     {EM_IA_64, "ia-69"},
-    {EM_X86_64, "x86-64"},
+    {EM_X86_64, "i386:x86-64"},
     {EM_VAX, "vax"}
 };
 
@@ -40,7 +40,7 @@ void display_architecture(objdump_t *obj)
 {
     for (size_t i = 0; i < 18; i++) {
         if (obj->ehdr.get_e_machine(obj) == architecture[i].define) {
-            printf("architecture: i386:%s, ", architecture[i].name);
+            printf("architecture: %s, ", architecture[i].name);
         }
     }
 }

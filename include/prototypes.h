@@ -11,11 +11,13 @@
 #include "elf_struct.h"
 
 /* OBJDUMP STRUCT */
-elf_t init_objdump_struct(char *);
-void destroy_objdump_struct(elf_t obj);
+elf_t init_elf_struct(char *);
+void destroy_elf_struct(elf_t obj);
 void init_flags(elf_t *obj);
 void init_phdr_struct(elf_t *obj);
 void init_shdr_struct(elf_t *obj);
+int init_elfs_struct(elf_t *obj);
+void init_sym_struct(elf_t *elf);
 
 /* ERROR */
 bool good_ident(elf_t *obj);

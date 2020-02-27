@@ -17,6 +17,22 @@
 typedef struct phdr_s phdr_t;
 typedef struct elf_s elf_t;
 typedef struct shdr_s shdr_t;
+typedef struct sym_s sym_t;
+
+struct sym_s
+{
+    Elf32_Sym *sym32;
+    Elf64_Sym *sym64;
+    char *strtab;
+    size_t size;
+    char * (*get_symbol_name)(elf_t *, size_t);
+    size_t (*get_st_name)(elf_t *, size_t);
+    size_t (*get_st_value)(elf_t *, size_t);
+    size_t (*get_st_size)(elf_t *, size_t);
+    size_t (*get_st_info)(elf_t *, size_t);
+    size_t (*get_st_other)(elf_t *, size_t);
+    size_t (*get_st_shndx)(elf_t *, size_t);
+};
 
 struct shdr_s
 {
@@ -59,6 +75,7 @@ struct elf_s
     Elf64_Ehdr *ehdr;
     phdr_t phdr;
     shdr_t shdr;
+    sym_t sym;
 };
 
 size_t get_p_type(elf_t *);
@@ -81,6 +98,14 @@ size_t get_sh_info(elf_t *, size_t);
 size_t get_sh_addralign(elf_t *, size_t);
 size_t get_sh_entsize(elf_t *, size_t);
 void *get_addrstrtable(elf_t *, size_t index);
+
+char *get_symbol_name(elf_t *elf, size_t index);
+size_t get_st_value(elf_t *elf, size_t index);
+size_t get_st_size(elf_t *elf, size_t index);
+size_t get_st_shndx(elf_t *elf, size_t index);
+size_t get_st_other(elf_t *elf, size_t index);
+size_t get_st_name(elf_t *elf, size_t index);
+size_t get_st_info(elf_t *elf, size_t index);
 
 #include "prototypes.h"
 

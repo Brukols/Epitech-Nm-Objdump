@@ -13,6 +13,10 @@ NAME_TESTS	=	unit_tests
 
 SRCS_NM		=		nm/src/main.c	\
 					nm/src/nm.c	\
+					nm/src/display_informations.c	\
+					nm/src/display_symbols.c	\
+					nm/src/symbol_struct/init_symbols.c	\
+					nm/src/symbol_struct/free_symbols.c	\
 					nm/src/rewrite_functions/close_file.c	\
 					nm/src/rewrite_functions/open_file.c	\
 					nm/src/rewrite_functions/wrong_file_format.c	\
@@ -40,11 +44,12 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 
 SRCS_TESTS	=	\
 
-SRCS_ELF	=		src/init_objdump_struct.c	\
-					src/destroy_objdump_struct.c	\
-					src/init_elf_struct.c	\
+SRCS_ELF	=		src/init_elf_struct.c	\
+					src/destroy_elf_struct.c	\
+					src/init_elfs_struct.c	\
 					src/init_phdr_struct.c	\
 					src/init_shdr_struct.c	\
+					src/init_sym_struct.c	\
 					src/init_flags.c	\
 					src/flags/flag_d_paged.c	\
 					src/flags/flag_dynamic.c	\
@@ -73,6 +78,13 @@ SRCS_ELF	=		src/init_objdump_struct.c	\
 					src/shdr/get_sh_offset.c	\
 					src/shdr/get_sh_size.c	\
 					src/shdr/get_sh_type.c	\
+					src/sym/get_st_name.c	\
+					src/sym/get_symbol_name.c	\
+					src/sym/get_st_info.c	\
+					src/sym/get_st_other.c	\
+					src/sym/get_st_shndx.c	\
+					src/sym/get_st_size.c	\
+					src/sym/get_st_value.c	\
 					src/error/file_has_error.c	\
 					src/error/good_ident.c	\
 					src/error/good_type.c	\
@@ -140,4 +152,4 @@ debug_objdump: re_objdump
 functional_tests: re
 			./tests/objdump/functional/tests.sh
 
-.PHONY: all nm objdump clean fclean re debug tests_run re_nm re_objdump clean_objdump fclean_objdump debug_objdump
+.PHONY: all nm objdump clean fclean re debug tests_run re_nm re_objdump clean_objdump fclean_objdump debug_objdump functional_tests

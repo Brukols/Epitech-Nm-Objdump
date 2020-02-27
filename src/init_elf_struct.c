@@ -2,18 +2,29 @@
 ** EPITECH PROJECT, 2020
 ** objdump
 ** File description:
-** init_elf_struct
+** init_objdump_struct
 */
 
 #include "../include/elf_struct.h"
+#include <sys/mman.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <stdio.h>
 
-int init_elf_struct(elf_t *obj)
+elf_t init_elf_struct(char *path)
 {
-    obj->ehdr = obj->buf;
-    if (file_has_error(obj)) {
-        return (FAILURE);
-    }
-    init_phdr_struct(obj);
-    init_shdr_struct(obj);
-    return (SUCCESS);
+    elf_t obj;
+    struct stat s;
+
+    obj.path = path;
+    obj.fd = open_file(path);
+    if (obj.fd == -1)
+        return (obj);
+    if (fstat(obj.fd, &s) == -1)
+        return (obj);
+    if (S_ISDIR(s.st_mode))
+        return (path_is_directory(obj));
+    obj.buf = mmap(NULL, s.st_size, PROT_READ, MAP_PRIVATE, obj.fd, 0);
+    return (obj);
 }

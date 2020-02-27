@@ -9,18 +9,18 @@
 
 int display_information(char *path)
 {
-    objdump_t obj = init_objdump_struct(path);
+    objdump_t obj = init_elf_struct(path);
 
     if (obj.fd == -1)
         return (-1);
     if (obj.buf == (void *)-1)
         return (close_file(obj.fd));
-    if (init_elf_struct(&obj) == FAILURE) {
-        destroy_objdump_struct(obj);
+    if (init_elfs_struct(&obj) == FAILURE) {
+        destroy_elf_struct(obj);
         return (FAILURE);
     }
     display_overall_header(&obj);
     display_sections(&obj);
-    destroy_objdump_struct(obj);
+    destroy_elf_struct(obj);
     return (SUCCESS);
 }

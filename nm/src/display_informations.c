@@ -8,7 +8,7 @@
 #include "../include/nm.h"
 #include <stdio.h>
 
-int display_informations(char *path)
+int display_informations(int ac, char *path)
 {
     nm_t nm = init_elf_struct(path);
 
@@ -20,6 +20,8 @@ int display_informations(char *path)
         destroy_elf_struct(nm);
         return (FAILURE);
     }
+    if (ac > 2)
+        printf("\n%s:\n", path);
     if (!nm.sym.sym32 && !nm.sym.sym64)
         printf("nm: %s: no symbols\n", nm.path);
     else

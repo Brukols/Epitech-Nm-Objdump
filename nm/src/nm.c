@@ -12,11 +12,11 @@ int nm(int ac, char **av)
     bool error = false;
 
     if (ac == 1) {
-        if (display_informations("a.out") != SUCCESS)
+        if (display_informations(1, "a.out") != SUCCESS)
             error = true;
     }
     for (int i = 1; i < ac; i++) {
-        if (display_informations(av[i]) != SUCCESS)
+        if (display_informations(ac, av[i]) != SUCCESS)
             error = true;
     }
     return ((error ? 84 : 0));

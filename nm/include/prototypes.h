@@ -11,7 +11,7 @@
 #include "nm.h"
 
 int nm(int ac, char **av);
-int display_informations(char *path);
+int display_informations(int ac, char *path);
 
 void display_symbols(nm_t *nm);
 symbol_t *init_symbols(nm_t *nm);

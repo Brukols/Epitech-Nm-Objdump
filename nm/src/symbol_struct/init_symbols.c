@@ -44,7 +44,7 @@ static char init_letter(nm_t *nm, int i)
     return ('?');
 }
 
-static symbol_t *insert_symbol(symbol_t *symbols, nm_t *nm, int i)
+static symbol_t *insert_symbol(symbol_t *symbols, nm_t *nm, int i, char c)
 {
     if (!symbols) {
         symbols = malloc(sizeof(symbol_t));
@@ -59,7 +59,7 @@ static symbol_t *insert_symbol(symbol_t *symbols, nm_t *nm, int i)
     symbols->next = NULL;
     symbols->name = nm->sym.get_symbol_name(nm, i);
     symbols->addr = nm->sym.get_st_value(nm, i);
-    symbols->letter = init_letter(nm, i);
+    symbols->letter = c;
     return (symbols);
 }
 
@@ -67,13 +67,15 @@ symbol_t *init_symbols(nm_t *nm)
 {
     symbol_t *symbols = NULL;
     symbol_t *first = NULL;
+    char c;
 
     for (size_t i = 0; i < nm->sym.size; i++) {
         if (nm->sym.get_st_name(nm, i) == 0)
             continue;
-        if (nm->sym.get_st_shndx(nm, i) == SHN_ABS)
+        c = init_letter(nm, i);
+        if (c == 'a')
             continue;
-        symbols = insert_symbol(symbols, nm, i);
+        symbols = insert_symbol(symbols, nm, i, c);
         if (!symbols)
             return (NULL);
         if (!first)

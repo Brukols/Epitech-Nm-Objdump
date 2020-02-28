@@ -18,7 +18,7 @@
 
 typedef elf_t nm_t;
 
-typedef struct symbol_s 
+typedef struct symbol_s
 {
     size_t addr;
     char letter;

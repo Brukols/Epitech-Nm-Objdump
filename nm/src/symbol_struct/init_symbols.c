@@ -15,10 +15,10 @@ typedef struct section_s {
 } section_t;
 
 const section_t sections[] = {
-    {'u', &is_min_u},
-    {'U', &is_maj_u},
     {'w', &is_min_w},
     {'W', &is_maj_w},
+    {'u', &is_min_u},
+    {'U', &is_maj_u},
     {'v', &is_min_v},
     {'V', &is_maj_v},
     {'a', &is_min_a},

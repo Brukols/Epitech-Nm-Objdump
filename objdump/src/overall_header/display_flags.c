@@ -8,11 +8,13 @@
 #include "../../include/objdump.h"
 #include <stdio.h>
 
-const struct flags_s
+typedef struct flags_s
 {
     int flags;
     char *name;
-} flags[] = {
+} flags_t;
+
+const flags_t flags[] = {
     {D_PAGED, "D_PAGED"},
     {WP_TEXT, "WP_TEXT"},
     {DYNAMIC, "DYNAMIC"},

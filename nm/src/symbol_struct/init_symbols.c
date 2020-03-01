@@ -63,6 +63,21 @@ static symbol_t *insert_symbol(symbol_t *symbols, nm_t *nm, int i, char c)
     return (symbols);
 }
 
+static bool is_a_file(nm_t *nm, int i)
+{
+    if (nm->ehdr.get_e_ident(nm)[EI_CLASS] == ELFCLASS32) {
+        if (ELF32_ST_TYPE(nm->sym.get_st_info(nm, i)) \
+== STT_FILE)
+            return (true);
+    }
+    if (nm->ehdr.get_e_ident(nm)[EI_CLASS] == ELFCLASS64) {
+        if (ELF64_ST_TYPE(nm->sym.get_st_info(nm, i)) \
+== STT_FILE)
+            return (true);
+    }
+    return (false);
+}
+
 symbol_t *init_symbols(nm_t *nm)
 {
     symbol_t *symbols = NULL;
@@ -72,9 +87,9 @@ symbol_t *init_symbols(nm_t *nm)
     for (size_t i = 0; i < nm->sym.size; i++) {
         if (nm->sym.get_st_name(nm, i) == 0)
             continue;
-        c = init_letter(nm, i);
-        if (c == 'a')
+        if (is_a_file(nm, i))
             continue;
+        c = init_letter(nm, i);
         symbols = insert_symbol(symbols, nm, i, c);
         if (!symbols)
             return (NULL);

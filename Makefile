@@ -167,6 +167,7 @@ clean_objdump:
 fclean: clean
 	$(RM) $(NAME_NM)
 	$(RM) $(NAME_OBJDUMP)
+	find . -type f -name "*.gcno" -delete -or -name "*.gcda" -delete
 
 fclean_objdump: clean_objdump
 	$(RM) $(NAME_OBJDUMP)
@@ -178,18 +179,14 @@ re_objdump: fclean objdump
 
 tests_run:	LDFLAGS += -lcriterion --coverage
 tests_run: 	CFLAGS += -fprofile-arcs -ftest-coverage
-tests_run: fclean $(OBJS_TESTS)
-			$(CC) -o $(NAME_TESTS) $(OBJS_TESTS) $(LDFLAGS)
-			./$(NAME_TESTS)
+tests_run: re
+			./tests/objdump/functional/tests.sh
+			./tests/nm/functional/tests.sh
 
 debug: CFLAGS += -g
 debug: re
 
 debug_objdump: CFLAGS += -g
 debug_objdump: re_objdump
-
-functional_tests: re
-			./tests/objdump/functional/tests.sh
-			./tests/nm/functional/tests.sh
 
 .PHONY: all nm objdump clean fclean re debug tests_run re_nm re_objdump clean_objdump fclean_objdump debug_objdump functional_tests

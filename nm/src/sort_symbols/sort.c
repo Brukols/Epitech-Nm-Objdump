@@ -19,7 +19,7 @@ static symbol_t *compare_first(symbol_t *symbols, symbol_t **fs)
     first->next = symbols;
     symbols->next = second;
     (*fs) = first;
-    return (NULL);
+    return (first);
 }
 
 symbol_t *sort(symbol_t *symbols)

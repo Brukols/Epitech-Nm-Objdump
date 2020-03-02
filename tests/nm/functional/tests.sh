@@ -37,7 +37,13 @@ exec_test()
 }
 
 exec_test "my_objdump" "test simple objdump"
+exec_test "my_nm" "test simple nm"
 exec_test "/usr/lib64/ld-linux-x86-64.so.2" "/usr/lib64/ld-linux-x86-64.so.2"
 exec_test "src/init_elfs_struct.o" "src/init_elfs_struct.o relocatable file"
+exec_test "src/init_flags.o" "src/init_flags.o relocatable file 2"
+exec_test "src/init_elf_struct.o" "src/init_elf_struct.o relocatable file 3"
+exec_test "src/init_sym_struct.o" "src/init_sym_struct.o relocatable file 4"
+exec_test "src/init_shdr_struct.o" "src/init_shdr_struct.o relocatable file 5"
+exec_test "src/init_phdr_struct.o" "src/init_phdr_struct.o relocatable file 5"
 
 exit 0

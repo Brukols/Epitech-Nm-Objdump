@@ -136,6 +136,10 @@ OBJS_TESTS		=	$(SRCS_TESTS:.c=.o)
 
 OBJS_ELF	=	$(SRCS_ELF:.c=.o)
 
+OBJS_GCDA	=	$(SRCS_ELF:.c=.gcda) $(SRCS_OBJDUMP:.c=.gcda) $(SRCS_NM:.c=.gcda)
+
+OBJS_GCNO	=	$(SRCS_ELF:.c=.gcno) $(SRCS_OBJDUMP:.c=.gcno) $(SRCS_NM:.c=.gcno)
+
 CFLAGS	=	-W -Wall -Wextra
 
 LDFLAGS	=	\
@@ -160,6 +164,8 @@ clean:
 	$(RM) $(OBJS_NM)
 	$(RM) $(OBJS_OBJDUMP)
 	$(RM) $(OBJS_ELF)
+	$(RM) $(OBJS_GCDA)
+	$(RM) $(OBJS_GCNO)
 
 clean_objdump:
 	$(RM) $(OBJS_OBJDUMP)
@@ -167,7 +173,6 @@ clean_objdump:
 fclean: clean
 	$(RM) $(NAME_NM)
 	$(RM) $(NAME_OBJDUMP)
-	find . -type f -name "*.gcno" -delete -or -name "*.gcda" -delete
 
 fclean_objdump: clean_objdump
 	$(RM) $(NAME_OBJDUMP)
@@ -189,4 +194,4 @@ debug: re
 debug_objdump: CFLAGS += -g
 debug_objdump: re_objdump
 
-.PHONY: all nm objdump clean fclean re debug tests_run re_nm re_objdump clean_objdump fclean_objdump debug_objdump functional_tests
+.PHONY: all nm objdump clean fclean re debug tests_run re_nm re_objdump clean_objdump fclean_objdump debug_objdump

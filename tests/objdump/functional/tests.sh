@@ -40,5 +40,7 @@ exec_test "/bin/ls" "/bin/ls"
 exec_test "/bin/cat" "/bin/cat"
 exec_test "/bin/touch" "/bin/touch"
 exec_test "/usr/lib64/ld-linux-x86-64.so.2" "/usr/lib64/ld-linux-x86-64.so.2"
+exec_test "my_objdump" "my_objdump"
+exec_test "my_nm" "my_nm"
 
 exit 0

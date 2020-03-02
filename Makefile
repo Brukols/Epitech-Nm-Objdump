@@ -44,6 +44,9 @@ SRCS_NM		=		nm/src/main.c	\
 					nm/src/sort_symbols/compare_symbols.c	\
 					nm/src/sort_symbols/list_is_not_sort.c	\
 					nm/src/sort_symbols/sort_symbols.c	\
+					nm/src/sort_symbols/sort_same_name.c	\
+					nm/src/sort_symbols/sort.c	\
+					nm/src/sort_symbols/swap_list.c	\
 
 SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/objdump.c	\

@@ -6,13 +6,9 @@
 */
 
 #include "../../include/nm.h"
+#include "../../include/utility.h"
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef struct section_s {
-    char letter;
-    bool (*ptr)(nm_t *, int);
-} section_t;
 
 const section_t sections[] = {
     {'w', &is_min_w},

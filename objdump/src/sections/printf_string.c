@@ -6,12 +6,7 @@
 */
 
 #include "../../include/objdump.h"
-
-typedef struct printf_string_s
-{
-    size_t nb;
-    const char *str;
-} printf_string_t;
+#include "../../include/utility.h"
 
 const printf_string_t printf_strings[] = {
     {0xf, " %04lx "},

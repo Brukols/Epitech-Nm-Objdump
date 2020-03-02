@@ -6,13 +6,8 @@
 */
 
 #include "../../include/objdump.h"
+#include "../../include/utility.h"
 #include <stdio.h>
-
-typedef struct architecture_s
-{
-    size_t define;
-    char *name;
-} architecture_t;
 
 const architecture_t architecture[] = {
     {EM_NONE, "UNKOWN!"},

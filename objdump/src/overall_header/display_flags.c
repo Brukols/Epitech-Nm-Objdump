@@ -6,13 +6,8 @@
 */
 
 #include "../../include/objdump.h"
+#include "../../include/utility.h"
 #include <stdio.h>
-
-typedef struct flags_s
-{
-    int flags;
-    char *name;
-} flags_t;
 
 const flags_t flags[] = {
     {D_PAGED, "D_PAGED"},

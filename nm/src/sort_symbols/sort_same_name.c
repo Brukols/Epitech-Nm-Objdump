@@ -7,21 +7,12 @@
 
 #include "../../include/nm.h"
 
-static bool cmp_symbols(symbol_t *symbols)
-{
-    if (strcmp(symbols->name, symbols->next->name) > 0 && symbols->value == symbols->next->value)
-        return (true);
-    if (symbols->value > symbols->next->value)
-        return (true);
-    return (false);
-}
-
 static symbol_t *compare_first(symbol_t *symbols, symbol_t **fs)
 {
     symbol_t *first = NULL;
     symbol_t *second = NULL;
 
-    if (cmp_symbols(symbols) == false)
+    if (strcmp(symbols->name, symbols->next->name) <= 0)
         return (symbols);
     first = symbols->next;
     second = symbols->next->next;
@@ -45,7 +36,7 @@ symbol_t *sort_same_name(symbol_t *symbols)
             last = compare_first(symbols, &first);
             symbols = symbols->next;
             continue;
-        } else if (cmp_symbols(symbols) == true)
+        } else if (strcmp(symbols->name, symbols->next->name) > 0)
             symbols = swap_list(last);
         last = symbols;
         symbols = symbols->next;

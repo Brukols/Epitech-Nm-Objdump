@@ -20,7 +20,8 @@ typedef elf_t nm_t;
 
 typedef struct symbol_s
 {
-    size_t addr;
+    size_t shndx;
+    size_t value;
     char letter;
     const char *name;
     struct symbol_s *next;

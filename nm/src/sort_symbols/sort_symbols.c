@@ -18,20 +18,54 @@ static symbol_t *swap_list(symbol_t *symbols)
     return (second);
 }
 
+static symbol_t *compare_first(symbol_t *last, symbol_t *symbols, symbol_t **fs)
+{
+    symbol_t *first = NULL;
+    symbol_t *second = NULL;
+
+    if (compare_symbols(symbols->name, symbols->next->name) <= 0)
+        return (symbols);
+    first = symbols->next;
+    second = symbols->next->next;
+    first->next = symbols;
+    symbols->next = second;
+    (*fs) = first;
+    return (NULL);
+}
+
 static symbol_t *sort(symbol_t *symbols)
 {
     symbol_t *first = symbols;
     symbol_t *last = NULL;
 
     while (symbols->next) {
+        if (!last) {
+            last = compare_first(last, symbols, &first);
+            symbols = symbols->next;
+            continue;
+        }
         if (compare_symbols(symbols->name, symbols->next->name) > 0) {
-            first = (!last ? symbols->next : first);
-            symbols = swap_list((!last ? symbols : last));
+            symbols = swap_list(last);
         }
         last = symbols;
         symbols = symbols->next;
     }
     return (first);
+}
+
+static symbol_t *compare_first_(symbol_t *last, symbol_t *symbols, symbol_t **fs)
+{
+    symbol_t *first = NULL;
+    symbol_t *second = NULL;
+
+    if (symbols->next->name[0] != '_')
+        return (symbols);
+    first = symbols->next;
+    second = symbols->next->next;
+    first->next = symbols;
+    symbols->next = second;
+    (*fs) = first;
+    return (NULL);
 }
 
 static symbol_t *sort_same_name(symbol_t *symbols)
@@ -45,9 +79,13 @@ static symbol_t *sort_same_name(symbol_t *symbols)
             symbols = symbols->next;
             continue;
         }
+        if (!last) {
+            last = compare_first_(last, symbols, &first);
+            symbols = symbols->next;
+            continue;
+        }
         if (symbols->next->name[0] == '_') {
-            first = (!last ? symbols->next : first);
-            symbols = swap_list((!last ? symbols : last));
+            symbols = swap_list(last);
         }
         last = symbols->next;
         if (symbols->next->next) {

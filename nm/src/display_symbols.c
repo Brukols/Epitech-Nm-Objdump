@@ -32,10 +32,10 @@ void display_symbols(nm_t *nm)
     const char *empty_str = init_empty_string(nm);
 
     for (; it; it = it->next) {
-        if (it->addr == 0) {
+        if (it->shndx == 0) {
             printf(empty_str, it->letter, it->name);
         } else {
-            printf(fill_str, it->addr, it->letter, it->name);
+            printf(fill_str, it->value, it->letter, it->name);
         }
     }
 

@@ -187,5 +187,6 @@ debug_objdump: re_objdump
 
 functional_tests: re
 			./tests/objdump/functional/tests.sh
+			./tests/nm/functional/tests.sh
 
 .PHONY: all nm objdump clean fclean re debug tests_run re_nm re_objdump clean_objdump fclean_objdump debug_objdump functional_tests

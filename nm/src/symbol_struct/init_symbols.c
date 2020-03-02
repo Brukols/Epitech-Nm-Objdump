@@ -54,7 +54,8 @@ static symbol_t *insert_symbol(symbol_t *symbols, nm_t *nm, int i, char c)
     }
     symbols->next = NULL;
     symbols->name = nm->sym.get_symbol_name(nm, i);
-    symbols->addr = nm->sym.get_st_value(nm, i);
+    symbols->shndx = nm->sym.get_st_shndx(nm, i);
+    symbols->value = nm->sym.get_st_value(nm, i);
     symbols->letter = c;
     return (symbols);
 }

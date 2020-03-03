@@ -5,7 +5,7 @@
 ** destroy_objdump_struct
 */
 
-#include "../include/elf_struct.h"
+#include "elf_struct.h"
 
 void destroy_elf_struct(elf_t obj)
 {

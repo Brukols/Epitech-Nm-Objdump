@@ -5,7 +5,7 @@
 ** flag_wp_text
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 int flag_wp_text(elf_t *obj)
 {

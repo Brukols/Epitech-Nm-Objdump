@@ -5,7 +5,7 @@
 ** objdump
 */
 
-#include "../include/objdump.h"
+#include "objdump.h"
 #include <string.h>
 
 int objdump(int ac, char **av)

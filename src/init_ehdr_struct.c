@@ -5,7 +5,7 @@
 ** init_ehdr_struct
 */
 
-#include "../include/elf_struct.h"
+#include "elf_struct.h"
 
 void init_ehdr_struct(elf_t *elf)
 {

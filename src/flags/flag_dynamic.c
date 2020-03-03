@@ -5,7 +5,7 @@
 ** dynamic
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 int flag_dynamic(elf_t *obj)
 {

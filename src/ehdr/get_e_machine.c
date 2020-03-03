@@ -5,7 +5,7 @@
 ** get_e_machine
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 size_t get_e_machine(elf_t *elf)
 {

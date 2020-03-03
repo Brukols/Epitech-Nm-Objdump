@@ -5,8 +5,8 @@
 ** printf_string
 */
 
-#include "../../include/objdump.h"
-#include "../../include/utility.h"
+#include "objdump.h"
+#include "utility.h"
 
 const printf_string_t printf_strings[] = {
     {0xf, " %04lx "},

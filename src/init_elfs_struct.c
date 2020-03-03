@@ -5,7 +5,7 @@
 ** nm
 */
 
-#include "../include/elf_struct.h"
+#include "elf_struct.h"
 
 int init_elfs_struct(elf_t *obj)
 {

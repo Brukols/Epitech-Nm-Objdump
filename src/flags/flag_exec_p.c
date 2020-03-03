@@ -5,7 +5,7 @@
 ** flag_exec_p
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 int flag_exec_p(elf_t *obj)
 {

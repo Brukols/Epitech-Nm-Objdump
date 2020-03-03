@@ -5,7 +5,7 @@
 ** display_information
 */
 
-#include "../include/objdump.h"
+#include "objdump.h"
 
 int display_information(char *path)
 {

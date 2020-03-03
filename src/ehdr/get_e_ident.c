@@ -5,7 +5,7 @@
 ** get_e_ident
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 unsigned char *get_e_ident(elf_t *elf)
 {

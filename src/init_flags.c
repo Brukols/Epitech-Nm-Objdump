@@ -5,7 +5,7 @@
 ** init_flags
 */
 
-#include "../include/elf_struct.h"
+#include "elf_struct.h"
 #include <string.h>
 #include <stdio.h>
 

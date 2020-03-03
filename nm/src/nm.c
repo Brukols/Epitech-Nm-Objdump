@@ -5,7 +5,7 @@
 ** nm
 */
 
-#include "../include/nm.h"
+#include "nm.h"
 
 int nm(int ac, char **av)
 {

@@ -5,7 +5,7 @@
 ** flag_has_reloc
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 int flag_has_reloc(elf_t *obj)
 {

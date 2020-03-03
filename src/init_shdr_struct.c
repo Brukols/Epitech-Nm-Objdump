@@ -5,7 +5,7 @@
 ** init_shdr_struct
 */
 
-#include "../include/elf_struct.h"
+#include "elf_struct.h"
 
 void init_shdr_struct(elf_t *obj)
 {

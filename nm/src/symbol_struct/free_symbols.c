@@ -5,7 +5,7 @@
 ** destroy_symbols
 */
 
-#include "../../include/nm.h"
+#include "nm.h"
 #include <stdlib.h>
 
 void free_symbols(symbol_t *symbols)

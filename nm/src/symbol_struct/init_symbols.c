@@ -5,8 +5,7 @@
 ** int_symbols
 */
 
-#include "../../include/nm.h"
-#include "../../include/utility.h"
+#include "nm_utility.h"
 #include <stdio.h>
 #include <stdlib.h>
 

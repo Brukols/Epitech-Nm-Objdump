@@ -5,7 +5,7 @@
 ** display_bytes
 */
 
-#include "../../include/objdump.h"
+#include "objdump.h"
 #include <stdio.h>
 #include <ctype.h>
 

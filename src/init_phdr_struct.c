@@ -5,7 +5,7 @@
 ** init_phdr_struct
 */
 
-#include "../include/elf_struct.h"
+#include "elf_struct.h"
 
 void init_phdr_struct(elf_t *obj)
 {

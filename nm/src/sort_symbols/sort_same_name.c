@@ -5,7 +5,7 @@
 ** sort name
 */
 
-#include "../../include/nm.h"
+#include "nm.h"
 #include <ctype.h>
 
 static int special_cmp(const char *s1, const char *s2)

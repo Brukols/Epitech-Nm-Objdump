@@ -5,7 +5,7 @@
 ** init_sym_sturct
 */
 
-#include "../include/elf_struct.h"
+#include "elf_struct.h"
 
 static void init_sym(elf_t *elf, int index)
 {

@@ -5,7 +5,7 @@
 ** getst_info
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 char *get_symbol_name(elf_t *elf, size_t index)
 {

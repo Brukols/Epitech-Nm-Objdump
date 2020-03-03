@@ -5,7 +5,7 @@
 ** list_is_not_sort
 */
 
-#include "../../include/nm.h"
+#include "nm.h"
 
 bool list_is_not_sort(symbol_t *symbols)
 {

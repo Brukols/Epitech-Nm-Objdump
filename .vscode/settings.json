@@ -4,6 +4,7 @@
         "string.h": "c",
         "elf_struct.h": "c",
         "nm.h": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "utility.h": "c"
     }
 }

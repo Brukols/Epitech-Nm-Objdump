@@ -12,9 +12,9 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include "../../include/macros.h"
-#include "../../include/flags.h"
-#include "../../include/elf_struct.h"
+#include "macros.h"
+#include "flags.h"
+#include "elf_struct.h"
 
 typedef elf_t nm_t;
 

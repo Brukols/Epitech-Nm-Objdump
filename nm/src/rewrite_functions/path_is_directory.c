@@ -5,7 +5,7 @@
 ** pth_is_directory
 */
 
-#include "../../include/nm.h"
+#include "nm.h"
 #include <stdio.h>
 
 nm_t path_is_directory(nm_t obj)

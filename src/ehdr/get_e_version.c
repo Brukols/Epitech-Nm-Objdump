@@ -5,7 +5,7 @@
 ** get_e_version
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 size_t get_e_version(elf_t *elf)
 {

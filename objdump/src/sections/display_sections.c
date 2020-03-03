@@ -5,7 +5,7 @@
 ** display_sectioins
 */
 
-#include "../../include/objdump.h"
+#include "objdump.h"
 #include <stdio.h>
 
 const char *non_printable_section[] = {

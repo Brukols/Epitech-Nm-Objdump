@@ -5,7 +5,7 @@
 ** wrong_file_format
 */
 
-#include "../../include/nm.h"
+#include "nm.h"
 #include <stdio.h>
 
 bool wrong_file_format(nm_t *obj)

@@ -5,7 +5,7 @@
 ** get_phdr
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 size_t get_p_vaddr(elf_t *this)
 {

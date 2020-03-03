@@ -5,7 +5,7 @@
 ** display_information
 */
 
-#include "../../include/objdump.h"
+#include "objdump.h"
 #include <stdio.h>
 #include <elf.h>
 

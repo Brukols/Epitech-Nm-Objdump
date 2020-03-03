@@ -5,7 +5,7 @@
 ** display_start_adress
 */
 
-#include "../../include/objdump.h"
+#include "objdump.h"
 #include <stdio.h>
 
 void display_start_adress(objdump_t *obj)

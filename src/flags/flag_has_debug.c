@@ -5,7 +5,7 @@
 ** has_debug
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 int flag_has_debug(elf_t *obj)
 {

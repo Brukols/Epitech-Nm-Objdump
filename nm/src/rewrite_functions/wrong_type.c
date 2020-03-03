@@ -5,7 +5,7 @@
 ** objdump
 */
 
-#include "../../include/nm.h"
+#include "nm.h"
 #include <stdio.h>
 
 bool wrong_type(elf_t *obj)

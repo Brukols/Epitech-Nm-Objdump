@@ -5,7 +5,7 @@
 ** main
 */
 
-#include "../include/objdump.h"
+#include "objdump.h"
 
 int main(int ac, char **av)
 {

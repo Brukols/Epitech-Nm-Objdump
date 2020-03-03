@@ -5,7 +5,7 @@
 ** good_verison
 */
 
-#include "../../include/nm.h"
+#include "nm.h"
 #include <stdio.h>
 
 bool good_version(nm_t *nm)

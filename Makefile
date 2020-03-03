@@ -140,7 +140,7 @@ OBJS_GCDA	=	$(SRCS_ELF:.c=.gcda) $(SRCS_OBJDUMP:.c=.gcda) $(SRCS_NM:.c=.gcda)
 
 OBJS_GCNO	=	$(SRCS_ELF:.c=.gcno) $(SRCS_OBJDUMP:.c=.gcno) $(SRCS_NM:.c=.gcno)
 
-CFLAGS	=	-W -Wall -Wextra
+CFLAGS	=	-I./include -I./objdump/include -I./nm/include -W -Wall -Wextra
 
 LDFLAGS	=	\
 
@@ -182,7 +182,7 @@ re: fclean all
 re_nm: fclean nm
 re_objdump: fclean objdump
 
-tests_run:	LDFLAGS += -lcriterion --coverage
+tests_run:	LDFLAGS += -lgcov --coverage
 tests_run: 	CFLAGS += -fprofile-arcs -ftest-coverage
 tests_run: re
 			./tests/objdump/functional/tests.sh

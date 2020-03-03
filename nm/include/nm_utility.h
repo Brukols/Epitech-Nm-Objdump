@@ -5,8 +5,8 @@
 ** header
 */
 
-#ifndef UTILITY_H
-#define UTILITY_H
+#ifndef NM_UTILITY_H
+#define NM_UTILITY_H
 
 #include "nm.h"
 

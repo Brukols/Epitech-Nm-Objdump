@@ -5,7 +5,7 @@
 ** wrong_file_format
 */
 
-#include "../../include/objdump.h"
+#include "objdump.h"
 #include <stdio.h>
 
 bool wrong_file_format(objdump_t *obj)

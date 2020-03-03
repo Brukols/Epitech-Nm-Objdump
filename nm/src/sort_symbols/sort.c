@@ -5,7 +5,7 @@
 ** sort
 */
 
-#include "../../include/nm.h"
+#include "nm.h"
 
 static symbol_t *compare_first(symbol_t *symbols, symbol_t **fs)
 {

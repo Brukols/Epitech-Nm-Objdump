@@ -5,8 +5,8 @@
 ** display_flags
 */
 
-#include "../../include/objdump.h"
-#include "../../include/utility.h"
+#include "objdump.h"
+#include "utility.h"
 #include <stdio.h>
 
 const flags_t flags[] = {

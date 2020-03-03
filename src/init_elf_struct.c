@@ -5,7 +5,7 @@
 ** init_objdump_struct
 */
 
-#include "../include/elf_struct.h"
+#include "elf_struct.h"
 #include <sys/mman.h>
 #include <string.h>
 #include <sys/stat.h>

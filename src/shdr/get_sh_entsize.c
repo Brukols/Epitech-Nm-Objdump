@@ -5,7 +5,7 @@
 ** get_sh
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 size_t get_sh_entsize(elf_t *this, size_t index)
 {

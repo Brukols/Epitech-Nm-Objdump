@@ -5,7 +5,7 @@
 ** sort_symbols
 */
 
-#include "../../include/nm.h"
+#include "nm.h"
 
 symbol_t *sort_symbols(symbol_t *symbols)
 {

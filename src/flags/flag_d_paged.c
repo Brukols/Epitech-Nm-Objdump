@@ -5,7 +5,7 @@
 ** d_pages
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 int flag_d_paged(elf_t *obj)
 {

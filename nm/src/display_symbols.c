@@ -5,7 +5,7 @@
 ** display_symbols
 */
 
-#include "../include/nm.h"
+#include "nm.h"
 #include <stdio.h>
 
 static const char *init_fill_string(nm_t *nm)

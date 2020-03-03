@@ -5,7 +5,7 @@
 ** file_has_error
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 #include <string.h>
 #include <stdbool.h>
 

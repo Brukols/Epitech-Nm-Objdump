@@ -5,7 +5,7 @@
 ** display_informations
 */
 
-#include "../include/nm.h"
+#include "nm.h"
 #include <stdio.h>
 
 int display_informations(int ac, char *path)

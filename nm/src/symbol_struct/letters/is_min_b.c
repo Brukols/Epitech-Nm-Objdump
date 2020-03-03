@@ -5,7 +5,7 @@
 ** letters
 */
 
-#include "../../../include/nm.h"
+#include "nm.h"
 
 bool is_min_b(nm_t *nm, int i)
 {

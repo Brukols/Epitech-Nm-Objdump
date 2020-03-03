@@ -5,7 +5,7 @@
 ** swap_list
 */
 
-#include "../../include/nm.h"
+#include "nm.h"
 
 symbol_t *swap_list(symbol_t *symbols)
 {

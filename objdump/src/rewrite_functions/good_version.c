@@ -5,7 +5,7 @@
 ** good_verison
 */
 
-#include "../../include/objdump.h"
+#include "objdump.h"
 #include <stdio.h>
 
 bool good_version(objdump_t *obj)

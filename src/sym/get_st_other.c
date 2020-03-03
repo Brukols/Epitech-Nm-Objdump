@@ -5,7 +5,7 @@
 ** getst_other
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 size_t get_st_other(elf_t *elf, size_t index)
 {

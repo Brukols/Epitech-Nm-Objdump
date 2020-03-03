@@ -5,7 +5,7 @@
 ** pth_is_directory
 */
 
-#include "../../include/objdump.h"
+#include "objdump.h"
 #include <stdio.h>
 
 objdump_t path_is_directory(objdump_t obj)

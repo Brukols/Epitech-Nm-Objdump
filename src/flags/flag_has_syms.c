@@ -5,7 +5,7 @@
 ** flag_has_syms
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 #include <stdio.h>
 
 int flag_has_syms(elf_t *obj)

@@ -5,7 +5,7 @@
 ** get_e_flags
 */
 
-#include "../../include/elf_struct.h"
+#include "elf_struct.h"
 
 size_t get_e_flags(elf_t *elf)
 {

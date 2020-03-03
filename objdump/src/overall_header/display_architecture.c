@@ -5,8 +5,8 @@
 ** display_architecture
 */
 
-#include "../../include/objdump.h"
-#include "../../include/utility.h"
+#include "objdump.h"
+#include "utility.h"
 #include <stdio.h>
 
 const architecture_t architecture[] = {

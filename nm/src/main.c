@@ -5,7 +5,7 @@
 ** main
 */
 
-#include "../include/nm.h"
+#include "nm.h"
 
 int main(int ac, char **av)
 {

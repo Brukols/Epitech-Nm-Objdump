@@ -18,6 +18,7 @@ elf_t init_elf_struct(char *path)
     struct stat s;
 
     obj.path = path;
+    obj.buf = (void *)-1;
     obj.fd = open_file(path);
     if (obj.fd == -1)
         return (obj);
@@ -25,6 +26,8 @@ elf_t init_elf_struct(char *path)
         return (obj);
     if (S_ISDIR(s.st_mode))
         return (path_is_directory(obj));
+    if (s.st_size == 0)
+        return (obj);
     obj.buf = mmap(NULL, s.st_size, PROT_READ, MAP_PRIVATE, obj.fd, 0);
     return (obj);
 }

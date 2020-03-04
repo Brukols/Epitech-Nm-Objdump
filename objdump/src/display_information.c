@@ -13,8 +13,10 @@ int display_information(char *path)
 
     if (obj.fd == -1)
         return (-1);
-    if (obj.buf == (void *)-1)
-        return (close_file(obj.fd));
+    if (obj.buf == (void *)-1) {
+        close_file(obj.fd);
+        return (FAILURE);
+    }
     if (init_elfs_struct(&obj) == FAILURE) {
         destroy_elf_struct(obj);
         return (FAILURE);

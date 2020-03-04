@@ -14,8 +14,10 @@ int display_informations(int ac, char *path)
 
     if (nm.fd == -1)
         return (-1);
-    if (nm.buf == (void *)-1)
-        return (close_file(nm.fd));
+    if (nm.buf == (void *)-1) {
+        close_file(nm.fd);
+        return (FAILURE);
+    }
     if (init_elfs_struct(&nm) == FAILURE) {
         destroy_elf_struct(nm);
         return (FAILURE);

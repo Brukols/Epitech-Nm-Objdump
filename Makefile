@@ -140,7 +140,7 @@ OBJS_GCDA	=	$(SRCS_ELF:.c=.gcda) $(SRCS_OBJDUMP:.c=.gcda) $(SRCS_NM:.c=.gcda)
 
 OBJS_GCNO	=	$(SRCS_ELF:.c=.gcno) $(SRCS_OBJDUMP:.c=.gcno) $(SRCS_NM:.c=.gcno)
 
-CFLAGS	=	-I./include -I./objdump/include -I./nm/include -W -Wall -Wextra
+CFLAGS	=	-I./include -W -Wall -Wextra
 
 LDFLAGS	=	\
 
@@ -150,13 +150,17 @@ RM		=		rm -f
 
 all: $(OBJS_ELF) $(NAME_NM) $(NAME_OBJDUMP)
 
+nm: CFLAGS += -I./nm/include
 nm: $(OBJS_ELF) $(NAME_NM)
 
+objdump: CFLAGS += -I./objdump/include
 objdump: $(OBJS_ELF) $(NAME_OBJDUMP)
 
+$(NAME_NM): CFLAGS += -I./nm/include
 $(NAME_NM): $(OBJS_NM)
 			$(CC) -o $(NAME_NM) $(OBJS_NM) $(OBJS_ELF) $(LDFLAGS)
 
+$(NAME_OBJDUMP): CFLAGS += -I./objdump/include
 $(NAME_OBJDUMP): $(OBJS_OBJDUMP)
 			$(CC) -o $(NAME_OBJDUMP) $(OBJS_OBJDUMP) $(OBJS_ELF) $(LDFLAGS)
 

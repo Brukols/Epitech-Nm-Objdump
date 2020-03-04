@@ -169,20 +169,11 @@ clean:
 	$(RM) $(OBJS_GCDA)
 	$(RM) $(OBJS_GCNO)
 
-clean_objdump:
-	$(RM) $(OBJS_OBJDUMP)
-
 fclean: clean
 	$(RM) $(NAME_NM)
 	$(RM) $(NAME_OBJDUMP)
 
-fclean_objdump: clean_objdump
-	$(RM) $(NAME_OBJDUMP)
-
 re: fclean all
-
-re_nm: fclean nm
-re_objdump: fclean objdump
 
 tests_run:	LDFLAGS += -lgcov --coverage
 tests_run: 	CFLAGS += -fprofile-arcs -ftest-coverage
@@ -193,7 +184,4 @@ tests_run: re
 debug: CFLAGS += -g
 debug: re
 
-debug_objdump: CFLAGS += -g
-debug_objdump: re_objdump
-
-.PHONY: all nm objdump clean fclean re debug tests_run re_nm re_objdump clean_objdump fclean_objdump debug_objdump
+.PHONY: all nm objdump clean fclean re debug tests_run

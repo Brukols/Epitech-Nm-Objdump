@@ -150,10 +150,8 @@ RM		=		rm -f
 
 all: $(OBJS_ELF) $(NAME_NM) $(NAME_OBJDUMP)
 
-nm: CFLAGS += -I./nm/include
 nm: $(OBJS_ELF) $(NAME_NM)
 
-objdump: CFLAGS += -I./objdump/include
 objdump: $(OBJS_ELF) $(NAME_OBJDUMP)
 
 $(NAME_NM): CFLAGS += -I./nm/include

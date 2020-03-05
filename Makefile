@@ -41,6 +41,7 @@ SRCS_NM		=		nm/src/main.c	\
 					nm/src/rewrite_functions/path_is_directory.c	\
 					nm/src/rewrite_functions/good_version.c	\
 					nm/src/rewrite_functions/wrong_type.c	\
+					nm/src/rewrite_functions/print_file_truncated.c	\
 					nm/src/sort_symbols/compare_symbols.c	\
 					nm/src/sort_symbols/list_is_not_sort.c	\
 					nm/src/sort_symbols/sort_symbols.c	\
@@ -65,6 +66,7 @@ SRCS_OBJDUMP	=	objdump/src/main.c	\
 					objdump/src/rewrite_functions/path_is_directory.c	\
 					objdump/src/rewrite_functions/good_version.c	\
 					objdump/src/rewrite_functions/wrong_type.c	\
+					objdump/src/rewrite_functions/print_file_truncated.c	\
 
 SRCS_TESTS	=	\
 
@@ -127,6 +129,7 @@ SRCS_ELF	=		src/init_elf_struct.c	\
 					src/error/file_has_error.c	\
 					src/error/good_ident.c	\
 					src/error/good_type.c	\
+					src/error/file_truncated.c	\
 
 OBJS_NM	=	$(SRCS_NM:.c=.o)
 

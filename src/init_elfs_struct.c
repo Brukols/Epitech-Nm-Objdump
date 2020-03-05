@@ -17,5 +17,7 @@ int init_elfs_struct(elf_t *obj)
     init_phdr_struct(obj);
     init_shdr_struct(obj);
     init_sym_struct(obj);
+    if (file_truncated(obj))
+        return (FAILURE);
     return (SUCCESS);
 }

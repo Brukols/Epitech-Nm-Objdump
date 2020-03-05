@@ -28,6 +28,7 @@ elf_t init_elf_struct(char *path)
         return (path_is_directory(obj));
     if (s.st_size == 0)
         return (obj);
+    obj.size = s.st_size;
     obj.buf = mmap(NULL, s.st_size, PROT_READ, MAP_PRIVATE, obj.fd, 0);
     return (obj);
 }

@@ -24,6 +24,8 @@ void init_ehdr_struct(elf_t *elf);
 bool good_ident(elf_t *obj);
 bool good_type(elf_t *obj);
 bool good_version(elf_t *obj);
+bool file_truncated(elf_t *obj);
+void print_file_truncated(elf_t *obj);
 
 /* FLAGS */
 bool file_has_error(elf_t *obj);

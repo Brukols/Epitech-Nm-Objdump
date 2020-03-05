@@ -93,6 +93,7 @@ struct elf_s
     void *buf;
     char *path;
     int flags;
+    size_t size;
     ehdr_t ehdr;
     phdr_t phdr;
     shdr_t shdr;

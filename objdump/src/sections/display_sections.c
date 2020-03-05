@@ -9,7 +9,7 @@
 #include <stdio.h>
 
 const char *non_printable_section[] = {
-    ".symtab", ".shstrtab", ".strtab", NULL
+    ".symtab", ".shstrtab", ".strtab", ".rel.eh_frame", ".rel.text", NULL
 };
 
 static bool name_non_printable(const char *name)
@@ -27,6 +27,8 @@ int display_sections(objdump_t *obj)
 
     for (size_t i = 1; i < obj->ehdr.get_e_shnum(obj); i++) {
         name = obj->shdr.addrstrtable + obj->shdr.get_sh_name(obj, i);
+        if (obj->shdr.get_sh_size(obj, i) == 0)
+            continue;
         if (obj->shdr.get_sh_type(obj, i) == SHT_NOBITS)
             continue;
         if (name_non_printable(name))

@@ -11,7 +11,7 @@
 int close_file(int fd)
 {
     if (close(fd) == -1) {
-        fprintf(stderr, "Objdump : can't close the file\n");
+        fprintf(stderr, "objdump : can't close the file\n");
         return (-1);
     }
     return (0);

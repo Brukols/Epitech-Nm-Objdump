@@ -36,6 +36,38 @@ exec_test()
     fi
 }
 
+exec_ex_test32()
+{
+    ((nb_test++))
+    echo -ne "${CYAN}${bold}Test n°$nb_test${NC} ${bold}($2)${NC} : "
+
+    gcc "$1" -m32 > /dev/null 2>&1
+
+    # Get the expect value
+    expect=`nm`
+    expect_return="$?"
+
+    # Get the actual value
+    result=`./my_nm`
+    result_return="$?"
+
+    if [[ "$expect" == "$result" ]]
+    then
+        if [[ "$expect_return" == "$result_return" ]]
+        then
+            echo -ne "${GREEN}${bold}OK${NC}\n"
+            ((test_passed++))
+        else
+            echo -ne "${RED}${bold}KO${NC}\n"
+            ((test_failed++))
+        fi
+    else
+        echo -ne "${RED}${bold}KO${NC}\n"
+        ((test_failed++))
+    fi
+    rm a.out
+}
+
 exec_test "my_objdump" "test simple objdump"
 exec_test "my_nm" "test simple nm"
 exec_test "my_nm my_objdump" "hard nm"
@@ -46,5 +78,6 @@ exec_test "src/init_elf_struct.o" "src/init_elf_struct.o relocatable file 3"
 exec_test "src/init_sym_struct.o" "src/init_sym_struct.o relocatable file 4"
 exec_test "src/init_shdr_struct.o" "src/init_shdr_struct.o relocatable file 5"
 exec_test "src/init_phdr_struct.o" "src/init_phdr_struct.o relocatable file 5"
+exec_ex_test32 "tests/nm/functional/test01.c" "Test file 32"
 
 exit 0

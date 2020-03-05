@@ -9,7 +9,8 @@
 #include <stdio.h>
 
 const char *non_printable_section[] = {
-    ".symtab", ".shstrtab", ".strtab", ".rel.eh_frame", ".rel.text", NULL
+    ".symtab", ".shstrtab", ".strtab", ".rel.eh_frame", ".rel.text",
+    ".rela.eh_frame", ".rela_text", NULL
 };
 
 static bool name_non_printable(const char *name)

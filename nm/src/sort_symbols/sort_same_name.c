@@ -55,17 +55,17 @@ symbol_t *sort_same_name(symbol_t *symbols)
     for (symbol_t *last = NULL; symbols->next;) {
         if (compare_symbols(symbols->name, symbols->next->name) != 0) {
             last = symbols;
-            symbols = symbols->next;
+            symbols = (symbols->next ? symbols->next : symbols);
             continue;
         }
         if (!last) {
             last = compare_first(symbols, &first);
-            symbols = symbols->next;
+            symbols = (symbols->next ? symbols->next : symbols);
             continue;
         } else if (special_cmp(symbols->name, symbols->next->name) > 0)
             symbols = swap_list(last);
         last = symbols;
-        symbols = symbols->next;
+        symbols = (symbols->next ? symbols->next : symbols);
     }
     return (first);
 }

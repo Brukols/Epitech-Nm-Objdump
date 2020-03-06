@@ -11,7 +11,7 @@
 bool good_version(objdump_t *obj)
 {
     if (obj->ehdr.ehdr64->e_version == EV_NONE) {
-        fprintf(stderr, "objdump: %s: invalid version", obj->path);
+        fprintf(stderr, "objdump: %s: invalid version\n", obj->path);
         return (false);
     }
     return (true);

@@ -68,6 +68,37 @@ exec_ex_test32()
     rm a.out
 }
 
+exec_error_test()
+{
+    ((nb_test++))
+    echo -ne "${CYAN}${bold}Test n°$nb_test${NC} ${bold}($2)${NC} : "
+
+    gcc "$1" -m32 > /dev/null 2>&1
+
+    # Get the expect value
+    expect=$(nm $1 2>&1 >/dev/null)
+    expect_return="$?"
+
+    # Get the actual value
+    result=$(./my_nm $1 2>&1 >/dev/null)
+    result_return="$?"
+
+    if [[ "$expect" == "$result" ]]
+    then
+        if [[ "$result_return" == "84" ]]
+        then
+            echo -ne "${GREEN}${bold}OK${NC}\n"
+            ((test_passed++))
+        else
+            echo -ne "${RED}${bold}KO${NC}\n"
+            ((test_failed++))
+        fi
+    else
+        echo -ne "${RED}${bold}KO${NC}\n"
+        ((test_failed++))
+    fi
+}
+
 exec_test "my_objdump" "test simple objdump"
 exec_test "my_nm" "test simple nm"
 exec_test "my_nm my_objdump" "hard nm"
@@ -79,5 +110,8 @@ exec_test "src/init_sym_struct.o" "src/init_sym_struct.o relocatable file 4"
 exec_test "src/init_shdr_struct.o" "src/init_shdr_struct.o relocatable file 5"
 exec_test "src/init_phdr_struct.o" "src/init_phdr_struct.o relocatable file 5"
 exec_ex_test32 "tests/nm/functional/test01.c" "Test file 32"
+exec_error_test "tests" "Error directory"
+exec_error_test "tests/nm/functional/empty" "empty file"
+exec_error_test "tests/nm/functional/no_elf" "Error no elf"
 
 exit 0

@@ -145,9 +145,12 @@ exec_test "/bin/touch" "/bin/touch"
 exec_test "/usr/lib64/ld-linux-x86-64.so.2" "/usr/lib64/ld-linux-x86-64.so.2"
 exec_test "my_objdump" "my_objdump"
 exec_test "my_nm" "my_nm"
+exec_test "my_nm my_objdump" "hard objdump"
 exec_o_test32 "tests/objdump/functional/test01.c" "tests/objdump/functional/test01.o" "Test file 32"
 exec_ex_test32 "tests/objdump/functional/test01.c" "Test file 32"
 exec_ex_test32 "tests/objdump/functional/test02.c" "Test file 32"
 exec_error_test "tests" "Error directory"
+exec_error_test "tests/nm/functional/empty" "empty file"
+exec_error_test "tests/nm/functional/no_elf" "Error no elf"
 
 exit 0

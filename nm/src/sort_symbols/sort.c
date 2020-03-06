@@ -21,7 +21,7 @@ static symbol_t *compare_first(symbol_t *symbols, symbol_t **fs)
     (*fs) = first;
     return (first);
 }
-#include <stdio.h>
+
 symbol_t *sort(symbol_t *symbols)
 {
     symbol_t *first = symbols;

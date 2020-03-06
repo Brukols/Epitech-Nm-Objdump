@@ -113,5 +113,7 @@ exec_ex_test32 "tests/nm/functional/test01.c" "Test file 32"
 exec_error_test "tests" "Error directory"
 exec_error_test "tests/nm/functional/empty" "empty file"
 exec_error_test "tests/nm/functional/no_elf" "Error no elf"
+exec_error_test "tests/nm/functional/truncated64" "Error truncated 64"
+exec_error_test "tests/nm/functional/truncated32" "Error truncated 32"
 
 exit 0

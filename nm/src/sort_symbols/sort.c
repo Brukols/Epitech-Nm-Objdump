@@ -21,7 +21,7 @@ static symbol_t *compare_first(symbol_t *symbols, symbol_t **fs)
     (*fs) = first;
     return (first);
 }
-
+#include <stdio.h>
 symbol_t *sort(symbol_t *symbols)
 {
     symbol_t *first = symbols;
@@ -30,14 +30,14 @@ symbol_t *sort(symbol_t *symbols)
     while (symbols->next) {
         if (!last) {
             last = compare_first(symbols, &first);
-            symbols = symbols->next;
+            symbols = (symbols->next ? symbols->next : symbols);
             continue;
         }
         if (compare_symbols(symbols->name, symbols->next->name) > 0) {
             symbols = swap_list(last);
         }
         last = symbols;
-        symbols = symbols->next;
+        symbols = (symbols->next ? symbols->next : symbols);
     }
     return (first);
 }

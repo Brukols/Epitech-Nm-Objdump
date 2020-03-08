@@ -15,7 +15,7 @@ int open_file(char *path)
     int fd = open(path, O_RDONLY);
 
     if (fd == -1) {
-        fprintf(stderr, "nm '%s': No such file\n", path);
+        fprintf(stderr, "nm: '%s': No such file\n", path);
     }
     return (fd);
 }
